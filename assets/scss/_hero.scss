@@ -1,0 +1,276 @@
+﻿// ==========================================================================
+// HERO — section principale, gradient, nom, role, CTAs
+// ==========================================================================
+
+#hero {
+  min-height: 100vh;
+  padding: 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(
+      600px circle at var(--mx, 50%) var(--my, 40%),
+      color-mix(in srgb, var(--accent) 55%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px circle at calc(var(--mx, 50%) + 12%) calc(var(--my, 40%) + 8%),
+      color-mix(in srgb, var(--accent) 22%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(1200px circle at 10% 110%, #1a0000, transparent 60%),
+    #000;
+  filter: blur(40px);
+  transition: background-position 0.2s ease;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  opacity: 0.4;
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.9) 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  // Padding top : juste au-dessus du header fixe (~62 px non rétréci, ~46 px
+  // rétréci) pour rapprocher la status bar du header.
+  // Padding bottom : minimal pour coller `.hero-foot` au bas du viewport.
+  padding: 0 var(--pad);
+  max-width: var(--maxw);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 11px;
+  color: var(--fg-mute);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--line-bright);
+
+  .left,
+  .right { display: flex; gap: 18px; }
+
+  .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  .ok { color: var(--accent); }
+}
+
+.hero-stack {
+  display: flex;
+  flex-direction: column;
+  // Colle le contenu en haut de la rangée 1fr du grid `.hero-content`,
+  // au lieu de le centrer verticalement. La section garde `min-height: 100vh`
+  // — l'espace restant pousse `.hero-foot` au bas du viewport.
+  justify-content: flex-start;
+  gap: 28px;
+  padding: 0;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px var(--accent-soft);
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+  }
+}
+
+.hero-name {
+  margin: 0;
+  font-size: clamp(56px, 12vw, 184px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  text-transform: lowercase;
+  color: var(--fg);
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.4);
+
+  .accent {
+    color: var(--accent);
+    text-shadow:
+      0 0 14px var(--accent),
+      0 0 32px color-mix(in srgb, var(--accent) 60%, transparent),
+      0 0 2px var(--accent);
+  }
+
+  .underscore {
+    color: var(--accent);
+    animation: blink 1s steps(2) infinite;
+    margin-left: 4px;
+    -webkit-text-stroke: 2px var(--accent);
+    text-shadow:
+      0 0 8px var(--accent),
+      1px 0 0 var(--accent),
+      -1px 0 0 var(--accent);
+  }
+}
+
+.hero-role {
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: var(--fg-dim);
+  max-width: 640px;
+
+  .prompt { color: var(--accent); margin-right: 8px; }
+  .typed  { color: var(--fg); }
+
+  .caret {
+    display: inline-block;
+    width: 9px;
+    height: 1.1em;
+    background: var(--accent);
+    vertical-align: -2px;
+    margin-left: 2px;
+    animation: blink 1s steps(2) infinite;
+    box-shadow: 0 0 6px var(--accent);
+  }
+}
+
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.hero-foot {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 32px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--line-bright);
+  font-size: 11px;
+  color: var(--fg-mute);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  .right { text-align: right; }
+}
+
+.scroll-cue {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--fg-dim);
+  background: none;
+  border: none;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+
+  &:hover {
+    transform: translateY(6px);
+    color: var(--fg);
+
+    .bar {
+      width: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent), 0 6px 18px color-mix(in srgb, var(--accent) 40%, transparent);
+      animation-duration: 0.9s;
+    }
+  }
+
+  &:focus-visible { outline: 1px dashed var(--accent); outline-offset: 4px; }
+
+  .bar {
+    width: 1px;
+    height: 28px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: drop 1.8s ease-in-out infinite;
+    transition: width 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+}
+
+// ==========================================================================
+// BOUTONS — partagés entre hero, contact, etc.
+// ==========================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--line-bright);
+  color: var(--fg);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  transition: all 0.2s ease;
+  text-transform: lowercase;
+
+  &:hover {
+    border-color: var(--fg);
+    background: rgba(20, 20, 20, 0.6);
+  }
+
+  .arrow { color: var(--accent); }
+
+  &.primary {
+    border-color: var(--accent);
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent-soft);
+    box-shadow: 0 0 0 1px transparent, 0 0 16px color-mix(in srgb, var(--accent) 25%, transparent);
+
+    .arrow { color: inherit; }
+
+    &:hover {
+      background: var(--accent);
+      color: #000;
+      text-shadow: none;
+      box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 60%, transparent);
+    }
+  }
+}

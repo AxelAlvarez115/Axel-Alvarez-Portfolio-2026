@@ -1,0 +1,265 @@
+﻿// ==========================================================================
+// EMAIL MODAL — formulaire de contact qui s'ouvre au clic sur le bouton email
+// Styles alignés sur le thème CV-skin (Syne / DM Mono, rouge néon, plaque
+// noire avec bande accent et coin chevron — voir .stack-card / .contact-block).
+// ==========================================================================
+
+body.email-modal-open { overflow: hidden; }
+
+.email-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 40px);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+
+  &.is-open {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+.email-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+}
+
+.email-modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+  background: var(--bg-2, #111);
+  border: 1px solid var(--line-bright);
+  padding: clamp(28px, 4vw, 44px);
+  font-family: var(--mono);
+  color: var(--fg);
+  transform: translateY(12px);
+  transition: transform 0.22s ease;
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 0, 0, 0.18),
+    0 0 40px rgba(255, 0, 0, 0.12);
+
+  // Bande accent rouge en haut (cohérent avec .stack-card / .contact-block)
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, #c50e22 35%, transparent 100%);
+    box-shadow: 0 0 8px var(--accent);
+    pointer-events: none;
+  }
+
+  // Chevron de coin haut-droit (signature visuelle .stack-card)
+  &::after {
+    content: "";
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 16px; height: 16px;
+    border-top: 1.5px solid rgba(255, 0, 0, 0.45);
+    border-right: 1.5px solid rgba(255, 0, 0, 0.45);
+    pointer-events: none;
+  }
+
+  .email-modal.is-open & { transform: translateY(0); }
+}
+
+.email-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 38px; // laisse la place au chevron du `::after`
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 20px;
+  line-height: 1;
+  color: var(--fg-dim);
+  background: transparent;
+  border: 1px solid var(--line-bright);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(255, 0, 0, 0.08);
+    outline: 0;
+  }
+}
+
+.email-modal-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  &::before {
+    content: "//";
+    color: var(--accent);
+    opacity: 0.55;
+  }
+}
+
+.email-modal-title {
+  margin: 0 0 10px;
+  font-family: var(--display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.4px;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.1;
+  color: var(--fg);
+
+  .accent {
+    color: var(--accent);
+    text-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+  }
+}
+
+.email-modal-sub {
+  margin: 0 0 24px;
+  font-family: var(--sans);
+  font-weight: 300;
+  color: var(--fg-dim);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 48ch;
+}
+
+// ── Form ─────────────────────────────────────────────────────────────────────
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  color: var(--fg-mute);
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  &::before {
+    content: "//";
+    color: var(--accent);
+    opacity: 0.6;
+  }
+
+  .required {
+    color: var(--accent);
+    opacity: 0.7;
+  }
+}
+
+.form-input {
+  width: 100%;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--line-bright);
+  border-radius: 2px;
+  padding: 11px 14px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  appearance: none;
+  -webkit-appearance: none;
+
+  &::placeholder {
+    color: var(--fg-mute);
+    opacity: 0.6;
+  }
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+
+  &:focus {
+    outline: 0;
+    border-color: var(--accent);
+    box-shadow:
+      0 0 0 1px var(--accent),
+      0 0 16px rgba(255, 0, 0, 0.2);
+    background: var(--bg);
+  }
+
+  // Erreur de validation (toggled via JS sur .is-invalid)
+  &.is-invalid {
+    border-color: rgba(255, 0, 0, 0.55);
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.35);
+  }
+}
+
+.form-textarea {
+  min-height: 110px;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 8px;
+  flex-wrap: wrap;
+
+  // Le .btn générique du thème est réutilisé tel quel
+  .btn { flex: 0 0 auto; }
+}
+
+.form-status {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  min-height: 14px;
+  margin-top: 2px;
+  color: var(--fg-mute);
+
+  &.is-success { color: var(--accent); }
+  &.is-error   { color: #ff6b6b; }
+}
+
+// ── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 480px) {
+  .email-modal-panel { padding: 26px 20px 22px; }
+  .email-modal-close { right: 30px; top: 14px; }
+
+  .form-actions {
+    flex-direction: column-reverse;
+
+    .btn { width: 100%; justify-content: center; }
+  }
+}

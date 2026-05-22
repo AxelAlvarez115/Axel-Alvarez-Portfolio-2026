@@ -1,0 +1,25 @@
+// ==========================================================================
+// VARIABLES
+// CSS custom properties (manipulées par JS) + variables SCSS statiques
+// ==========================================================================
+
+:root {
+  --bg:          #000000;
+  --bg-2:        #0a0a0a;
+  --fg:          #f4f4f4;
+  --fg-dim:      #8a8a8a;
+  --fg-mute:     #5a5a5a;
+  --accent:      #ff0000;
+  --accent-soft: color-mix(in srgb, var(--accent) 35%, transparent);
+  --accent-ghost:color-mix(in srgb, var(--accent) 12%, transparent);
+  --line:        #1c1c1c;
+  --line-bright: #2a2a2a;
+  --mono:        "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --maxw:        1280px;
+  --pad:         clamp(20px, 4vw, 64px);
+}
+
+// SCSS variables statiques (valeurs par défaut, ne pas utiliser là où JS intervient)
+$accent-default: #ff0000;
+$bg-default:     #000000;
+$mono-stack:     "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;

@@ -1,0 +1,540 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Axel Alvarez — Full-stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+<script>
+  // Defaults the Tweaks panel persists into.
+  window.__TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "#e10600",
+    "scanlines": true,
+    "grain": true
+  }/*EDITMODE-END*/;
+</script>
+
+<link rel="stylesheet" href="assets/css/main.css" />
+
+
+
+
+
+
+
+</head>
+<body data-scanlines="on" data-grain="on" style="font-family: 'DM Sans', sans-serif;">
+
+  <div class="cv-bars" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+  </div>
+  <div class="cv-bars-rule" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a href="#hero" class="brand">
+    <span class="brand-dot"></span>
+    <span class="brand-name">axel.alvarez</span><span class="brand-slash">/</span><span class="brand-role">dev</span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#hero"><span class="num">01</span><span data-i18n="nav.hero">hero</span></a>
+    <a href="#about"><span class="num">02</span><span data-i18n="nav.about">about</span></a>
+    <a href="#projects"><span class="num">03</span><span data-i18n="nav.projects">projects</span></a>
+    <a href="#education"><span class="num">04</span><span data-i18n="nav.education">education</span></a>
+    <a href="#contact"><span class="num">05</span><span data-i18n="nav.contact">contact</span></a>
+    <button class="lang-toggle" id="langToggle" type="button" aria-label="Changer la langue" title="Changer la langue">
+      <span class="lang-dot" aria-hidden="true"></span>
+      <span class="lang-current" id="langCurrent">FR</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-other" id="langOther">EN</span>
+    </button>
+    <a href="#contact" class="nav-cta" data-i18n="cta_hire">./hire_me.sh</a>
+  </nav>
+
+  <button class="nav-burger" id="navBurger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+  </button>
+</header>
+
+<!-- Mobile nav drawer -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav-inner">
+    <a href="#hero"><span class="num">01</span><span data-i18n="nav.hero">accueil</span></a>
+    <a href="#about"><span class="num">02</span><span data-i18n="nav.about">à propos</span></a>
+    <a href="#projects"><span class="num">03</span><span data-i18n="nav.projects">projets</span></a>
+    <a href="#education"><span class="num">04</span><span data-i18n="nav.education">formation</span></a>
+    <a href="#contact"><span class="num">05</span><span data-i18n="nav.contact">contact</span></a>
+    <a href="#contact" class="mobile-cta" data-i18n="cta_hire">./embauchez_moi.sh</a>
+  </div>
+</div>
+
+<aside class="page-rail" id="pageRail" aria-hidden="true">
+  <div class="rail-track"></div>
+  <div class="rail-fill"></div>
+  <div class="rail-head"></div>
+  <div class="rail-ticks" id="railTicks">
+    <a class="rail-tick" href="#hero"      data-target="hero"      data-num="01"><span class="rail-label" data-i18n="nav.hero">hero</span></a>
+    <a class="rail-tick" href="#about"     data-target="about"     data-num="02"><span class="rail-label" data-i18n="nav.about">about</span></a>
+    <a class="rail-tick" href="#projects"  data-target="projects"  data-num="03"><span class="rail-label" data-i18n="nav.projects">projects</span></a>
+    <a class="rail-tick" href="#education" data-target="education" data-num="04"><span class="rail-label" data-i18n="nav.education">education</span></a>
+    <a class="rail-tick" href="#contact"   data-target="contact"   data-num="05"><span class="rail-label" data-i18n="nav.contact">contact</span></a>
+  </div>
+  <div class="rail-pct" id="railPct">0%</div>
+</aside>
+
+<main>
+
+<!-- HERO -->
+<section id="hero" data-screen-label="01 Hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-vignette"></div>
+
+  <div class="hero-content">
+    <div class="hero-statusbar">
+      <div class="left">
+        <span><span class="dot"></span><span class="ok" data-i18n="hero.available">AVAILABLE</span></span>
+        <span data-i18n="hero.location">MONTRÉAL · QC</span>
+      </div>
+      <div class="right">
+        <span id="clock">--:--:--</span>
+      </div>
+    </div>
+
+    <div class="hero-stack">
+      <div class="hero-eyebrow" data-i18n="hero.eyebrow">portfolio // full-stack engineer</div>
+
+      <h1 class="hero-name glitch" data-text="axel_alvarez">
+        axel<span class="accent">_</span>alvarez<span class="underscore">_</span>
+      </h1>
+
+      <div class="hero-role">
+        <span class="typed" id="typed">full-stack developer building fast, weird software.</span><span class="caret"></span>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#projects" class="btn primary"><span data-i18n="hero.cta_projects">view_projects</span><span class="arrow">→</span></a>
+        <a href="#contact" class="btn"><span data-i18n="hero.cta_contact">./contact</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <div class="left" data-i18n="hero.foot_left">↳ scroll to enter</div>
+      <div class="center"><button class="scroll-cue" aria-label="Scroll to next section"><span class="bar"></span></button></div>
+      <div class="right" data-i18n="hero.foot_right">based in mtl // open for work</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" data-screen-label="02 About">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="num">02 /</span>
+      <h2 class="glitch" data-text="about_me" data-i18n="sh.about.h" data-i18n-attr="data-text">about_me</h2>
+      <span class="rule"></span>
+      <span class="meta" data-i18n="sh.about.meta">~/bio.md</span>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-prose">
+        <p class="lede" data-i18n="about.lede">I'm a full-stack developer who likes the parts of the stack other people don't want to think about — schemas, build pipelines, edge cases at 3am.</p>
+        <p data-i18n="about.p1" data-i18n-html="1">I build <strong>web apps</strong>, <strong>internal tools</strong>, and the occasional <strong>weird side project</strong>. Most of my work lives somewhere between TypeScript and Postgres, with a healthy obsession for low-latency UI and clean API contracts.</p>
+        <p data-i18n="about.p2">Before software I studied computer engineering. Before that, I was the kid who took apart the family DVD player. Some things don't change.</p>
+        <p data-i18n="about.p3">Outside the terminal: lifting heavy things, brutalist architecture, and over-engineering my coffee setup.</p>
+      </div>
+
+      <aside class="stack-card">
+        <h3 data-i18n="stack.title">// stack.config</h3>
+
+        <div class="stack-group">
+          <div class="label" data-i18n="stack.frontend">frontend</div>
+          <div class="chips">
+            <span class="chip">TypeScript</span>
+            <span class="chip">React</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">Svelte</span>
+            <span class="chip">Tailwind</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="label" data-i18n="stack.backend">backend</div>
+          <div class="chips">
+            <span class="chip">Node</span>
+            <span class="chip">Go</span>
+            <span class="chip">Python</span>
+            <span class="chip">Postgres</span>
+            <span class="chip">Redis</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="label" data-i18n="stack.infra">infra</div>
+          <div class="chips">
+            <span class="chip">Docker</span>
+            <span class="chip">AWS</span>
+            <span class="chip">Vercel</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">GitHub Actions</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="label" data-i18n="stack.learning">currently_learning</div>
+          <div class="chips">
+            <span class="chip">Rust</span>
+            <span class="chip">WebGPU</span>
+            <span class="chip">DuckDB</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" data-screen-label="03 Projects">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="num">03 /</span>
+      <h2 class="glitch" data-text="my_projects" data-i18n="sh.projects.h" data-i18n-attr="data-text">my_projects</h2>
+      <span class="rule"></span>
+      <span class="meta" data-i18n="sh.projects.meta">~/work/ • 04 shown</span>
+    </div>
+
+    <div class="projects">
+
+      <article class="project">
+        <div class="project-media">
+          <span class="badge" data-i18n="proj.p1.badge">live</span>
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+          <div class="ascii"><span>┌──────────────────────────────┐
+│  <span class="accent">▮ ▮ ▮</span>   nodegraph.io        │
+├──────────────────────────────┤
+│  ◯──────◉──────◯─────◉──────◯ │
+│   ╲    ╱  ╲   ╱  ╲   ╱  ╲   │
+│    ◉──◯    ◉─◯    ◉─◯    ◉  │
+│  realtime graph editor       │
+└──────────────────────────────┘</span></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">project.01</div>
+          <h3 class="glitch" data-text="nodegraph.io">nodegraph.io</h3>
+          <div class="meta"><span>2025</span><span data-i18n="proj.p1.m2">solo</span><span data-i18n="proj.p1.m3">web app</span></div>
+          <p data-i18n="proj.p1.desc">Collaborative node-graph editor for data pipelines. Multiplayer cursors, time-travel undo, and a custom WebGL renderer that stays at 60fps with 10k+ nodes on screen.</p>
+          <div class="stack">
+            <span class="chip">TypeScript</span><span class="chip">Rust</span><span class="chip">WebGL</span><span class="chip">CRDT</span><span class="chip">Cloudflare</span>
+          </div>
+          <div class="links">
+            <a class="link" href="#"><span data-i18n="proj.link.live_demo">live demo</span><span class="arr">↗</span></a>
+            <a class="link" href="#"><span>github</span><span class="arr">↗</span></a>
+            <a class="link" href="#"><span data-i18n="proj.link.case_study">case study</span><span class="arr">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project flip">
+        <div class="project-media">
+          <span class="badge">v2.3</span>
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+          <div class="ascii"><span>    <span class="accent">$ ./deploy --prod</span>
+  ╭────────────────────────╮
+  │ █████████░░░  78%      │
+  │ shipping artifact...   │
+  ╰────────────────────────╯
+   ▓▓▓▓ <span class="accent">SHIPYARD CI</span> ▓▓▓▓
+       zero-config pipelines</span></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">project.02</div>
+          <h3 class="glitch" data-text="shipyard">shipyard</h3>
+          <div class="meta"><span>2024</span><span data-i18n="proj.p2.m2">team of 3</span><span data-i18n="proj.p2.m3">devtool</span></div>
+          <p data-i18n="proj.p2.desc">Zero-config CI/CD for small teams. Detects your stack, writes the pipeline, and ships. Built the orchestrator and the live log streaming layer.</p>
+          <div class="stack">
+            <span class="chip">Go</span><span class="chip">React</span><span class="chip">Docker</span><span class="chip">NATS</span><span class="chip">Postgres</span>
+          </div>
+          <div class="links">
+            <a class="link" href="#"><span>shipyard.dev</span><span class="arr">↗</span></a>
+            <a class="link" href="#"><span>github</span><span class="arr">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-media">
+          <span class="badge">oss</span>
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+          <div class="ascii"><span>  <span class="accent">▙▟ querymancer ▙▟</span>
+  ┌──────────────────────┐
+  │ SELECT * FROM users  │
+  │  WHERE id = ?        │
+  ├──────────────────────┤
+  │ ✓ 12ms · 1.4k rows   │
+  │ ✓ index used         │
+  └──────────────────────┘
+   sql notebook for humans</span></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">project.03</div>
+          <h3 class="glitch" data-text="querymancer">querymancer</h3>
+          <div class="meta"><span>2024</span><span data-i18n="proj.p3.m2">solo</span><span data-i18n="proj.p3.m3">open source</span></div>
+          <p data-i18n="proj.p3.desc">A SQL notebook that doesn't suck. Local-first, blazing-fast schema introspection, and AI completions that actually know your tables. 4.2k stars on GitHub.</p>
+          <div class="stack">
+            <span class="chip">Tauri</span><span class="chip">Rust</span><span class="chip">Svelte</span><span class="chip">DuckDB</span>
+          </div>
+          <div class="links">
+            <a class="link" href="#"><span>github</span><span class="arr">↗</span></a>
+            <a class="link" href="#"><span>docs</span><span class="arr">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project flip">
+        <div class="project-media">
+          <span class="badge">side</span>
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+          <div class="ascii"><span>  ░░░░░░░░░░░░░░░░░░░░░░
+  ░ <span class="accent">SYN/STATIC</span>   FM 88.6 ░
+  ░ ▂▃▅▇█▇▅▃▂ ░ ▂▃▅▇█▇▅▃▂ ░
+  ░ now playing:         ░
+  ░  → "fragments.mp3"   ░
+  ░░░░░░░░░░░░░░░░░░░░░░░
+   webradio · live mixing</span></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">project.04</div>
+          <h3 class="glitch" data-text="syn/static">syn/static</h3>
+          <div class="meta"><span>2023</span><span data-i18n="proj.p4.m2">solo</span><span data-i18n="proj.p4.m3">side project</span></div>
+          <p data-i18n="proj.p4.desc">A tiny web radio that mixes ambient + synthwave 24/7. WebAudio crossfader, FFT visualizer, and a quietly judgy "skip" button.</p>
+          <div class="stack">
+            <span class="chip">Web Audio</span><span class="chip">Canvas</span><span class="chip">SvelteKit</span>
+          </div>
+          <div class="links">
+            <a class="link" href="#"><span data-i18n="proj.link.tune_in">tune in</span><span class="arr">↗</span></a>
+            <a class="link" href="#"><span data-i18n="proj.link.writeup">writeup</span><span class="arr">→</span></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" data-screen-label="04 Education">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="num">04 /</span>
+      <h2 class="glitch" data-text="education" data-i18n="sh.edu.h" data-i18n-attr="data-text">education</h2>
+      <span class="rule"></span>
+      <span class="meta" data-i18n="sh.edu.meta">~/.history</span>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="date" data-i18n="edu.e1.date">2022 — 2024</div>
+        <h3 class="glitch" data-text="m.sc. computer science" data-i18n="edu.e1.h" data-i18n-attr="data-text">m.sc. computer science</h3>
+        <div class="school">École Polytechnique de Montréal</div>
+        <p class="desc" data-i18n="edu.e1.desc">Specialization in distributed systems &amp; programming languages. Thesis on incremental computation in collaborative editors.</p>
+        <div class="tags">
+          <span class="chip">distributed systems</span>
+          <span class="chip">CRDTs</span>
+          <span class="chip">compilers</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="date" data-i18n="edu.e2.date">2018 — 2022</div>
+        <h3 class="glitch" data-text="b.eng. software engineering" data-i18n="edu.e2.h" data-i18n-attr="data-text">b.eng. software engineering</h3>
+        <div class="school">McGill University</div>
+        <p class="desc" data-i18n="edu.e2.desc">First-class honours. Research assistant in HCI lab building tools for live coding performance.</p>
+        <div class="tags">
+          <span class="chip">algorithms</span>
+          <span class="chip">HCI</span>
+          <span class="chip">graphics</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="date" data-i18n="edu.e3.date">ongoing</div>
+        <h3 class="glitch" data-text="self-directed" data-i18n="edu.e3.h" data-i18n-attr="data-text">self-directed</h3>
+        <div class="school" data-i18n="edu.e3.school">the internet • conferences • libraries</div>
+        <p class="desc" data-i18n="edu.e3.desc">Currently chewing through Rust, WebGPU, and the postgres source code. Recent rabbit holes: B-trees, CRDTs, and how compilers schedule registers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" data-screen-label="05 Contact">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="num">05 /</span>
+      <h2 class="glitch" data-text="contact_me" data-i18n="sh.contact.h" data-i18n-attr="data-text">contact_me</h2>
+      <span class="rule"></span>
+      <span class="meta" data-i18n="sh.contact.meta">~/inbox</span>
+    </div>
+
+    <div class="contact-block">
+      <h3 class="contact-headline glitch" data-text="let's_build_something_loud." data-i18n="contact.headline" data-i18n-attr="data-text" data-i18n-html="1">let's<span class="accent">_</span>build<span class="accent">_</span>something<span class="accent">_</span>loud.</h3>
+      <p class="contact-sub" data-i18n="contact.sub">Looking for collaborators, contracts, or just someone to argue about monorepos with? My inbox is open and I read everything within 48 hours.</p>
+
+      <div class="contact-actions">
+        <a class="btn primary" href="/cdn-cgi/l/email-protection#6f070a0303002f0e170a030e03190e1d0a15410b0a19"><span><span class="__cf_email__" data-cfemail="d7bfb2bbbbb897b6afb2bbb6bba1b6a5b2adf9b3b2a1">[email&#160;protected]</span></span><span class="arrow">→</span></a>
+        <a class="btn" href="#"><span data-i18n="contact.book">book a call</span><span class="arrow">↗</span></a>
+        <a class="btn" href="#"><span data-i18n="contact.cv">download cv.pdf</span><span class="arrow">↓</span></a>
+      </div>
+
+      <div class="contact-meta">
+        <div class="row">
+          <div class="k" data-i18n="contact.meta.location_k">// location</div>
+          <div class="v" data-i18n="contact.meta.location_v" data-i18n-html="1">Montréal, QC <span class="accent">●</span></div>
+        </div>
+        <div class="row">
+          <div class="k" data-i18n="contact.meta.tz_k">// timezone</div>
+          <div class="v">EST · UTC−5</div>
+        </div>
+        <div class="row">
+          <div class="k" data-i18n="contact.meta.avail_k">// availability</div>
+          <div class="v" data-i18n="contact.meta.avail_v" data-i18n-html="1"><span class="accent">●</span> open · jun 2026</div>
+        </div>
+        <div class="row">
+          <div class="k" data-i18n="contact.meta.resp_k">// response_time</div>
+          <div class="v" data-i18n="contact.meta.resp_v">~12h avg</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="left" data-i18n="footer.left">© 2026 axel alvarez · built with caffeine &amp; vim</div>
+    <div class="center">
+      <span data-i18n="footer.fps">fps: 60</span>
+      <span>·</span>
+      <span data-i18n="footer.mem">memory: nominal</span>
+    </div>
+    <div class="socials">
+      <a class="social" href="#" aria-label="GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.45.11-3.02 0 0 .97-.31 3.18 1.18a11.07 11.07 0 015.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.57.23 2.73.11 3.02.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+      </a>
+      <a class="social" href="#" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a class="social" href="/cdn-cgi/l/email-protection#08606d6464674869706d6469647e697a6d72266c6d7e" aria-label="Email" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14"/><path d="M3 7l9 6 9-6"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Email contact modal -->
+<div class="email-modal" id="emailModal" role="dialog" aria-modal="true" aria-labelledby="emailModalTitle" aria-hidden="true">
+  <div class="email-modal-backdrop" data-modal-close></div>
+  <div class="email-modal-panel" role="document">
+    <button type="button" class="email-modal-close" data-modal-close aria-label="Close">×</button>
+    <div class="email-modal-eyebrow" data-i18n="email.eyebrow">compose_message</div>
+    <h3 class="email-modal-title" id="emailModalTitle" data-i18n="email.title" data-i18n-html="1">send<span class="accent">_</span>a<span class="accent">_</span>message</h3>
+    <p class="email-modal-sub" data-i18n="email.sub">Drop your idea, contract, or argument-about-monorepos here. Hits my inbox directly.</p>
+
+    <form class="email-form" id="emailForm" novalidate>
+      <div class="form-row">
+        <label class="form-label" for="ef-name"><span data-i18n="email.name_l">name</span><span class="required">*</span></label>
+        <input id="ef-name" name="name" type="text" class="form-input" required autocomplete="name" />
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="ef-email"><span data-i18n="email.email_l">email</span><span class="required">*</span></label>
+        <input id="ef-email" name="email" type="email" class="form-input" required autocomplete="email" inputmode="email" />
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="ef-subject"><span data-i18n="email.subject_l">subject</span></label>
+        <input id="ef-subject" name="subject" type="text" class="form-input" autocomplete="off" />
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="ef-message"><span data-i18n="email.message_l">message</span><span class="required">*</span></label>
+        <textarea id="ef-message" name="message" class="form-input form-textarea" rows="5" required></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn" data-modal-close>
+          <span data-i18n="email.cancel">cancel</span>
+        </button>
+        <button type="submit" class="btn primary">
+          <span data-i18n="email.send">send_message</span><span class="arrow">→</span>
+        </button>
+      </div>
+      <div class="form-status" id="emailFormStatus" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+<div id="tweaks-mount"></div>
+
+
+
+
+<script src="assets/js/hero-gradient.js"></script>
+<script src="assets/js/clock.js"></script>
+<script src="assets/js/typed.js"></script>
+<script src="assets/js/cursors.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/contact-glitch.js"></script>
+<script src="assets/js/mobile-burger.js"></script>
+<script src="assets/js/header-scroll.js"></script>
+<script src="assets/js/scroll-rail.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/email-modal.js"></script>
+<!-- Tweaks panel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" data-presets="env,react">
+  const { useEffect } = React;
+  const { TweaksPanel, useTweaks, TweakSection, TweakColor, TweakToggle } = window;
+
+  function PortfolioTweaks() {
+    const [t, setTweak] = useTweaks(window.__TWEAK_DEFAULTS);
+
+    useEffect(() => {
+      document.documentElement.style.setProperty('--accent', t.accent);
+      document.body.dataset.scanlines = t.scanlines ? 'on' : 'off';
+      document.body.dataset.grain = t.grain ? 'on' : 'off';
+    }, [t.accent, t.scanlines, t.grain]);
+
+    return (
+      <TweaksPanel title="Tweaks">
+        <TweakSection title="Accent">
+          <TweakColor
+            label="Neon red hue"
+            value={t.accent}
+            onChange={(v) => setTweak('accent', v)}
+            options={['#ff0000','#ff2d55','#e10600','#ff6b00','#ff00aa','#ff4444']}
+          />
+        </TweakSection>
+        <TweakSection title="Effects">
+          <TweakToggle label="Scanlines" value={t.scanlines} onChange={(v) => setTweak('scanlines', v)} />
+          <TweakToggle label="Film grain" value={t.grain} onChange={(v) => setTweak('grain', v)} />
+        </TweakSection>
+      </TweaksPanel>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('tweaks-mount')).render(<PortfolioTweaks />);
+</script>
+
+</body>
+</html>

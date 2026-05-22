@@ -1,0 +1,78 @@
+// ==========================================================================
+// CONTACT — bloc principal, headline, meta infos
+// ==========================================================================
+
+#contact .section-inner { max-width: 980px; }
+
+.contact-block {
+  border: 1px solid var(--line-bright);
+  padding: clamp(28px, 5vw, 56px);
+  position: relative;
+  background:
+    radial-gradient(600px circle at 20% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
+    linear-gradient(180deg, #050505, #000);
+  overflow: hidden;
+
+  &::before {
+    content: "// LET'S BUILD SOMETHING";
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    opacity: 0.85;
+  }
+}
+
+.contact-headline {
+  margin: 0 0 14px;
+  font-size: clamp(34px, 5.5vw, 64px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+
+  .accent {
+    color: var(--accent);
+    text-shadow: 0 0 14px var(--accent), 0 0 28px color-mix(in srgb, var(--accent) 50%, transparent);
+  }
+}
+
+.contact-sub {
+  color: var(--fg-dim);
+  max-width: 56ch;
+  margin: 0 0 28px;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.contact-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--line-bright);
+
+  .row {
+    .k {
+      font-size: 10px;
+      color: var(--fg-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+
+    .v {
+      font-size: 13px;
+      color: var(--fg);
+
+      .accent { color: var(--accent); }
+    }
+  }
+}

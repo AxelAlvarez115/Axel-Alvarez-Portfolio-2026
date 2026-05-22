@@ -1,0 +1,126 @@
+// ==========================================================================
+// BASE — reset, html/body, FX overlays, éléments globaux
+// ==========================================================================
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  // Overlay scanlines
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    pointer-events: none;
+    z-index: 90;
+    mix-blend-mode: overlay;
+  }
+
+  &[data-scanlines="off"]::before { display: none; }
+
+  // Overlay grain
+  &::after {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 91;
+    mix-blend-mode: screen;
+    animation: grainShift 1.6s steps(6) infinite;
+  }
+
+  &[data-grain="off"]::after { display: none; }
+}
+
+::selection { background: var(--accent); color: #000; }
+
+a      { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+// ==========================================================================
+// SECTIONS — layout général
+// ==========================================================================
+
+main { padding-top: 56px; }
+
+section {
+  padding: clamp(80px, 12vh, 140px) var(--pad);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.section-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 48px;
+  border-bottom: 1px dashed var(--line-bright);
+  padding-bottom: 16px;
+
+  .num {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
+  }
+
+  .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--line-bright);
+    margin-bottom: 12px;
+  }
+
+  .meta {
+    color: var(--fg-mute);
+    font-size: 12px;
+  }
+}
+
+// Tweaks panel mount
+#tweaks-mount {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+
+  > * { pointer-events: auto; }
+}

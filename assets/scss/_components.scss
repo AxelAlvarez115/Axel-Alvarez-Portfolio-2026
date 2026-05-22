@@ -1,0 +1,441 @@
+﻿// ==========================================================================
+// COMPONENTS — glitch, burger mobile, mobile nav, page rail
+// ==========================================================================
+
+// ---------- Glitch hover ----------
+.glitch {
+  position: relative;
+  display: inline-block;
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &::before {
+    color: var(--accent);
+    transform: translate(0, 0);
+    mix-blend-mode: screen;
+  }
+
+  &::after {
+    color: #00e7ff;
+    transform: translate(0, 0);
+    mix-blend-mode: screen;
+  }
+
+  &:hover {
+    animation: glitch-jitter 0.6s steps(2) 1;
+
+    &::before { animation: glitch-a 0.6s steps(2) 1; opacity: 1; }
+    &::after  { animation: glitch-b 0.6s steps(2) 1; opacity: 1; }
+  }
+}
+
+// ---------- Burger mobile ----------
+.nav-burger {
+  display: none;
+  position: relative;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 0, 0, 0.06) !important;
+  border: 1px solid rgba(255, 0, 0, 0.35) !important;
+  border-radius: 2px;
+  padding: 0;
+  cursor: pointer;
+  z-index: 121;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--fg);
+  transition:
+    transform 0.3s cubic-bezier(0.55, 0.05, 0.25, 1),
+    opacity 0.2s ease,
+    background 0.2s ease;
+  transform-origin: center center;
+}
+
+.nav-burger {
+  &:hover .burger-bar { background: var(--accent); }
+
+  &[aria-expanded="true"] {
+    .burger-bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+      background: var(--accent);
+    }
+
+    .burger-bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .burger-bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+      background: var(--accent);
+    }
+  }
+}
+
+// ---------- Mobile nav drawer ----------
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.96);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  z-index: 110;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  overflow-y: auto;
+
+  &.is-open {
+    display: block;
+    opacity: 1;
+  }
+}
+
+.mobile-nav-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 96px clamp(24px, 6vw, 48px) 48px;
+  max-width: 480px;
+  margin: 0 auto;
+  height: 100%;
+
+  a {
+    font-family: var(--mono);
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--fg);
+    padding: 18px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease, padding-left 0.2s ease;
+    position: relative;
+
+    .num {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: rgba(255, 0, 0, 0.6);
+      font-weight: 400;
+    }
+
+    &::after {
+      content: "→";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      font-size: 18px;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--accent);
+      background: rgba(255, 0, 0, 0.04);
+      padding-left: 22px;
+      outline: 0;
+
+      &::after {
+        opacity: 1;
+        transform: translate(4px, -50%);
+      }
+    }
+  }
+
+  .mobile-cta {
+    margin-top: 24px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 14px;
+    padding: 16px 20px;
+    border: 0;
+    border-bottom: 0;
+    justify-content: center;
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.55), 0 0 18px rgba(255, 0, 0, 0.4);
+
+    &::after { display: none; }
+
+    &:hover {
+      background: #18181b;
+      color: var(--accent);
+      padding-left: 20px;
+    }
+  }
+}
+
+body.mobile-nav-open { overflow: hidden; }
+
+@media (max-width: 860px) {
+  .site-header .nav { display: none !important; }
+  .site-header .lang-toggle { margin-right: 0 !important; }
+  .nav-burger { display: inline-flex !important; }
+}
+
+@media (min-width: 861px) {
+  .mobile-nav { display: none !important; }
+}
+
+// ---------- Page rail (indicateur de scroll) ----------
+.page-rail {
+  position: fixed;
+  top: 140px;
+  bottom: 130px;
+  left: 78px;
+  width: 30px;
+  z-index: 95;
+  pointer-events: none;
+  font-family: var(--mono);
+  --progress: 0;
+
+  &::before {
+    content: "SCROLL";
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: var(--fg-mute);
+    font-weight: 500;
+  }
+
+  @media (max-width: 980px) { display: none; }
+}
+
+.rail-track {
+  position: absolute;
+  top: 0;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+}
+
+.rail-fill {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: calc((100% - 28px) * var(--progress));
+  background: linear-gradient(180deg, var(--accent), #aa0000);
+  box-shadow: 0 0 10px var(--accent), 0 0 3px var(--accent);
+  transition: height 0.12s ease-out;
+}
+
+.rail-head {
+  position: absolute;
+  left: 50%;
+  top: calc((100% - 28px) * var(--progress));
+  transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent), 0 0 4px var(--accent), inset 0 0 2px #fff;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  transition: top 0.12s ease-out;
+}
+
+.rail-ticks {
+  position: absolute;
+  top: 0;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  pointer-events: auto;
+}
+
+.rail-tick {
+  position: absolute;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--fg-mute);
+  pointer-events: auto;
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--bg);
+    border: 1px solid var(--line-bright);
+    transition: all 0.18s ease;
+    display: block;
+  }
+
+  &::after {
+    content: attr(data-num);
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--fg-mute);
+    transition: color 0.18s ease, transform 0.18s ease;
+  }
+
+  .rail-label {
+    position: absolute;
+    left: 36px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--fg);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid var(--line-bright);
+    padding: 4px 8px;
+    border-radius: 2px;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+
+  &:hover {
+    .rail-label { opacity: 1; transform: translate(2px, -50%); }
+
+    &::before { border-color: var(--accent); }
+    &::after  { color: var(--accent); }
+  }
+
+  &.is-passed::before {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  &.is-active {
+    &::before {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 14px var(--accent), 0 0 4px var(--accent);
+      transform: scale(1.25);
+    }
+
+    &::after {
+      color: var(--accent);
+      text-shadow: 0 0 6px rgba(255, 0, 0, 0.6);
+    }
+  }
+}
+
+.rail-pct {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  font-weight: 500;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.4);
+  padding: 4px 6px;
+  border: 1px solid var(--line-bright);
+  background: rgba(10, 10, 10, 0.7);
+  white-space: nowrap;
+}
+
+// ==========================================================================
+// CUSTOM CURSOR — dot + ring, pointer: fine only (mouse/trackpad)
+// ==========================================================================
+
+@media (pointer: fine) {
+  * { cursor: none !important; }
+
+  .cursor-dot {
+    position: fixed;
+    top: 0; left: 0;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow:
+      0 0 0 1.5px rgba(0, 0, 0, 0.85),
+      0 0 10px var(--accent),
+      0 0 2px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    transition: width 0.18s ease, height 0.18s ease, opacity 0.18s ease;
+  }
+
+  .cursor-ring {
+    position: fixed;
+    top: 0; left: 0;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid color-mix(in srgb, var(--accent) 70%, transparent);
+    background: rgba(0, 0, 0, 0.18);
+    box-shadow:
+      inset 0 0 6px rgba(0, 0, 0, 0.5),
+      0 0 8px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    z-index: 9998;
+    will-change: transform;
+    transition: width 0.22s ease, height 0.22s ease,
+                border-color 0.22s ease, border-width 0.22s ease,
+                background 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  body.cursor-hover {
+    .cursor-dot {
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+
+    .cursor-ring {
+      width: 46px;
+      height: 46px;
+      border-color: var(--accent);
+      border-width: 1.5px;
+      background: color-mix(in srgb, var(--accent) 8%, rgba(0, 0, 0, 0.35));
+      box-shadow:
+        inset 0 0 10px rgba(0, 0, 0, 0.5),
+        0 0 14px color-mix(in srgb, var(--accent) 35%, transparent),
+        0 0 4px rgba(0, 0, 0, 0.6);
+    }
+  }
+}

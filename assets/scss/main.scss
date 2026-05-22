@@ -1,0 +1,39 @@
+// ==========================================================================
+// MAIN SCSS — point d'entrée
+//
+// Compiler avec : sass assets/scss/main.scss assets/css/main.css
+// Watch          : sass --watch assets/scss/main.scss assets/css/main.css
+// ==========================================================================
+
+// 1. Variables CSS custom + SCSS vars
+@import 'variables';
+
+// 2. Keyframes
+@import 'animations';
+
+// 3. Base & reset
+@import 'base';
+
+// 4. Header / nav
+@import 'header';
+
+// 5. Hero + boutons
+@import 'hero';
+
+// 6. Sections de contenu
+@import 'about';
+@import 'projects';
+@import 'education';
+@import 'contact';
+@import 'footer';
+
+// 7. Composants partagés (glitch, burger, mobile nav, page rail)
+@import 'components';
+
+// 8. Email modal (formulaire de contact)
+@import 'email-modal';
+
+// 9. Thèmes — cascade : alien → modern-classic → cv-skin (cv-skin gagne)
+@import 'themes/alien-skin';
+@import 'themes/modern-classic';
+@import 'themes/cv-skin';

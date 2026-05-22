@@ -1,0 +1,580 @@
+// ==========================================================================
+// THEME: ALIEN SKIN
+// Style Valorant-inspired — plaques noires, coutures rouges émissives,
+// découpes chevron, bords angulaires.
+// ==========================================================================
+
+body { background: #050507; }
+
+// Séparateurs de sections : couture émissive rouge
+section {
+  border-bottom: 0;
+  position: relative;
+
+  & + section::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      var(--accent) 18%,
+      var(--accent) 82%,
+      transparent 100%);
+    box-shadow: 0 0 14px var(--accent), 0 0 4px var(--accent);
+    opacity: 0.55;
+    z-index: 1;
+  }
+}
+
+// En-tête de section
+.section-head {
+  border-bottom: 0;
+  padding-bottom: 14px;
+  align-items: center;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: var(--pad); right: var(--pad);
+    height: 1px;
+    background: linear-gradient(90deg,
+      var(--accent) 0 64px,
+      transparent 64px 72px,
+      var(--line-bright) 72px 100%);
+    transform: translateY(14px);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 50%, transparent);
+  }
+
+  .num {
+    background: var(--accent);
+    color: #000;
+    padding: 5px 12px 5px 14px;
+    text-shadow: none;
+    font-weight: 800;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 60%, transparent));
+  }
+}
+
+// Brand dot → diamant rouge
+.brand-dot {
+  background: var(--accent) !important;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  width: 12px !important;
+  height: 12px !important;
+  box-shadow: 0 0 10px var(--accent), 0 0 3px var(--accent) !important;
+}
+
+// Boutons : découpe chevron à droite
+.btn {
+  border: 0 !important;
+  position: relative;
+  background: linear-gradient(180deg, #0d0d12, #050507);
+  padding-right: 30px;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+  isolation: isolate;
+  overflow: visible;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--line-bright);
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background: linear-gradient(180deg, #18181f, #0a0a0d);
+    &::before { background: var(--fg); }
+  }
+
+  &.primary {
+    background: linear-gradient(180deg, #1f0008, #0c0004);
+    text-shadow: 0 0 10px var(--accent);
+    box-shadow: none;
+
+    &::before {
+      background: var(--accent);
+      filter: drop-shadow(0 0 8px var(--accent));
+    }
+
+    &:hover { background: var(--accent); color: #000; text-shadow: none; }
+  }
+}
+
+// Nav CTA angulaire
+.nav-cta {
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
+  padding-right: 22px;
+  border: 0 !important;
+  position: relative;
+  background: linear-gradient(180deg, #1a0008, #0a0004);
+  box-shadow: none !important;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+    pointer-events: none;
+    filter: drop-shadow(0 0 8px var(--accent));
+  }
+
+  &:hover { background: var(--accent); color: #000; text-shadow: none; }
+}
+
+// Lien actif nav
+.nav a.is-active {
+  clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  background: linear-gradient(90deg, var(--accent-ghost), transparent);
+  border-color: transparent;
+  padding-right: 18px;
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent-soft);
+}
+
+// Hero eyebrow : tag angulaire rouge
+.hero-eyebrow {
+  position: relative;
+  padding: 5px 16px 5px 18px;
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--accent) 28%, transparent),
+    color-mix(in srgb, var(--accent) 8%, transparent) 70%,
+    transparent);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  align-self: flex-start;
+
+  &::before { display: none; }
+}
+
+// Hero name : saignée rouge
+.hero-name {
+  position: relative;
+
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    color: transparent;
+    -webkit-text-stroke: 1px color-mix(in srgb, var(--accent) 35%, transparent);
+    filter: blur(10px);
+    z-index: -1;
+    pointer-events: none;
+    text-transform: lowercase;
+  }
+
+  .accent,
+  .underscore {
+    text-shadow:
+      0 0 16px var(--accent),
+      0 0 36px var(--accent),
+      0 0 72px color-mix(in srgb, var(--accent) 70%, transparent);
+  }
+}
+
+// Stack card : plaque angulaire
+.stack-card {
+  border: 0;
+  background: linear-gradient(135deg, #0e0e13, #050507);
+  clip-path: polygon(
+    0 0, calc(100% - 28px) 0, 100% 28px,
+    100% 100%, 28px 100%, 0 calc(100% - 28px)
+  );
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0; width: auto; height: auto;
+    background: var(--accent);
+    clip-path: polygon(
+      0 0, calc(100% - 28px) 0, 100% 28px,
+      100% 100%, 28px 100%, 0 calc(100% - 28px)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+    border: 0;
+    box-shadow: none;
+    filter: drop-shadow(0 0 10px color-mix(in srgb, var(--accent) 45%, transparent));
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 13px; right: -2px;
+    width: 42px; height: 1px;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent), 0 0 2px var(--accent);
+    transform: rotate(-45deg);
+    transform-origin: right center;
+    border: 0;
+    clip-path: none;
+  }
+}
+
+// Chips : parallélogrammes
+.chip {
+  clip-path: polygon(7px 0, 100% 0, calc(100% - 7px) 100%, 0 100%);
+  padding: 4px 13px;
+  border: 0;
+  background: linear-gradient(180deg, #15151b, #0a0a0d);
+  font-weight: 500;
+
+  &:hover {
+    background: var(--accent);
+    color: #000;
+    text-shadow: none;
+    border: 0;
+  }
+}
+
+// Project media : plaque polygonale blindée
+.project-media {
+  border: 0 !important;
+  clip-path: polygon(
+    0 32px, 32px 0,
+    calc(60% - 24px) 0, 60% 24px,
+    calc(100% - 24px) 24px, 100% 0,
+    100% calc(100% - 20px), calc(100% - 20px) 100%,
+    20px 100%, 0 calc(100% - 20px)
+  );
+  background:
+    linear-gradient(transparent calc(100% - 36px), var(--accent) calc(100% - 36px) calc(100% - 35px), transparent calc(100% - 35px)),
+    linear-gradient(135deg, #10101a 0%, #0a0a10 40%, #050507 100%);
+  transition: filter 0.25s;
+
+  &::before {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mix-blend-mode: screen;
+    opacity: 0.6;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: var(--line-bright);
+    clip-path: polygon(
+      0 32px, 32px 0,
+      calc(60% - 24px) 0, 60% 24px,
+      calc(100% - 24px) 24px, 100% 0,
+      100% calc(100% - 20px), calc(100% - 20px) 100%,
+      20px 100%, 0 calc(100% - 20px)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+    pointer-events: none;
+    transition: background 0.25s, filter 0.25s;
+  }
+
+  &:hover {
+    box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 30%, transparent) !important;
+    border-color: transparent !important;
+
+    &::after {
+      background: var(--accent);
+      filter: drop-shadow(0 0 12px var(--accent));
+    }
+  }
+
+  .corner { display: none; }
+
+  .badge {
+    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    border: 0;
+    background: var(--accent);
+    color: #000;
+    text-shadow: none;
+    font-weight: 700;
+    padding: 5px 16px;
+    top: 28px; right: 28px;
+    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--accent) 60%, transparent));
+  }
+
+  .ascii { padding-top: 60px; padding-bottom: 50px; }
+}
+
+// Liens projet
+.project-body {
+  .link {
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+    padding-right: 22px;
+    border: 0;
+    background: linear-gradient(180deg, #0e0e13, #050507);
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--line-bright);
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      padding: 1px;
+      pointer-events: none;
+    }
+
+    &:hover {
+      border: 0;
+
+      &::before {
+        background: var(--accent);
+        filter: drop-shadow(0 0 6px var(--accent));
+      }
+    }
+  }
+}
+
+// Timeline : marqueurs chevron pulsants
+.timeline {
+  border-left: 0;
+  background-image: linear-gradient(180deg,
+    transparent 0,
+    var(--accent) 8%,
+    var(--line-bright) 30%,
+    var(--line-bright) 70%,
+    var(--accent) 92%,
+    transparent 100%);
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
+.tl-item {
+  &::before {
+    background: var(--accent) !important;
+    border: 0 !important;
+    width: 14px !important; height: 14px !important;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    box-shadow: 0 0 14px var(--accent), 0 0 4px var(--accent) !important;
+    left: -39px !important; top: 6px !important;
+  }
+
+  &::after { display: none; }
+}
+
+// Contact block : grande plaque blindée
+.contact-block {
+  border: 0;
+  clip-path: polygon(
+    0 0, calc(100% - 56px) 0, 100% 56px,
+    100% 100%, 56px 100%, 0 calc(100% - 56px)
+  );
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    clip-path: polygon(
+      0 0, calc(100% - 56px) 0, 100% 56px,
+      100% 100%, 56px 100%, 0 calc(100% - 56px)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+    filter: drop-shadow(0 0 16px color-mix(in srgb, var(--accent) 45%, transparent));
+    pointer-events: none;
+  }
+
+  > * { position: relative; z-index: 1; }
+}
+
+// Icônes sociales : hex-clipped
+.social {
+  border: 0;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  position: relative;
+  background: #0a0a0d;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--line-bright);
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+    pointer-events: none;
+  }
+
+  &:hover {
+    box-shadow: none;
+
+    &::before {
+      background: var(--accent);
+      filter: drop-shadow(0 0 6px var(--accent));
+    }
+  }
+
+  svg { position: relative; z-index: 1; }
+}
+
+// Rail accent de section
+#about .section-inner,
+#projects .section-inner,
+#education .section-inner,
+#contact .section-inner {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -16px;
+    width: 2px; height: 56px;
+    background: linear-gradient(180deg, var(--accent), transparent);
+    box-shadow: 0 0 12px var(--accent), 0 0 4px var(--accent);
+    z-index: 1;
+  }
+}
+
+@media (max-width: 720px) {
+  #about .section-inner::before,
+  #projects .section-inner::before,
+  #education .section-inner::before,
+  #contact .section-inner::before { display: none; }
+}
+
+// Hero status bar mini tags chevron
+.hero-statusbar {
+  .left > span,
+  .right > span {
+    padding: 2px 10px;
+    background: linear-gradient(90deg,
+      color-mix(in srgb, var(--accent) 12%, transparent),
+      transparent);
+    clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  }
+}
+
+// Scroll cue → lame rouge
+.scroll-cue .bar {
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+// About lede : bordure chevron pointée
+.about-prose .lede {
+  border-left: 0;
+  padding-left: 22px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 8px;
+    background: var(--accent);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), 50% 100%, 0 calc(100% - 18px));
+    box-shadow: 0 0 10px var(--accent);
+  }
+}
+
+// Passe cinématique
+:root { --display: "Chakra Petch", "JetBrains Mono", system-ui, sans-serif; }
+
+.hero-name, .section-head h2, .project-body h3,
+.tl-item h3, .contact-headline, .stack-card h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+.hero-name         { font-weight: 700; letter-spacing: 0.005em; text-transform: lowercase; }
+.contact-headline  { font-weight: 700; letter-spacing: -0.01em; text-transform: lowercase; }
+.stack-card h3     { letter-spacing: 0.2em; font-weight: 500; }
+.brand             { font-family: var(--display); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.nav-cta, .btn     { font-family: var(--display); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+.hero-eyebrow, .section-head .num, .hero-statusbar { font-family: var(--display); font-weight: 500; letter-spacing: 0.18em; }
+
+body::before { opacity: 0.4; }
+body::after  { opacity: 0.022 !important; }
+
+.hero-role {
+  font-size: clamp(15px, 1.5vw, 19px);
+  color: var(--fg);
+
+  .typed { color: var(--fg); font-weight: 400; }
+  .caret { background: var(--accent); box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent-soft); }
+}
+
+#hero .hero-stack {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -8%; right: 30%;
+    top: 30%; height: 60%;
+    background: radial-gradient(ellipse at center,
+      color-mix(in srgb, var(--accent) 35%, transparent) 0%,
+      transparent 60%);
+    filter: blur(40px);
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+.hero-statusbar { font-size: 10px; opacity: 0.85; }
+
+// Visuels projets : art facetté alien
+.project-media .ascii { display: none; }
+.project-media {
+  background-image:
+    var(--facet-svg, none),
+    linear-gradient(transparent calc(100% - 36px), var(--accent) calc(100% - 36px) calc(100% - 35px), transparent calc(100% - 35px)),
+    linear-gradient(135deg, #10101a 0%, #0a0a10 40%, #050507 100%);
+  background-size: cover, 100% 100%, 100% 100%;
+  background-position: center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+}
+
+// SVGs facettés par projet
+.projects .project:nth-child(1) .project-media {
+  --facet-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice"><polygon points="40,30 160,20 200,80 110,100 30,90" fill="%2315151c" stroke="%23252530"/><polygon points="200,80 320,30 380,100 270,140 200,110" fill="%230e0e15" stroke="%23252530"/><polygon points="30,90 110,100 140,200 60,220" fill="%230c0c14" stroke="%23252530"/><polygon points="140,200 270,140 290,220 200,240" fill="%2310101a" stroke="%23252530"/><polygon points="270,140 380,100 380,250 290,220" fill="%230a0a12" stroke="%23252530"/><path d="M30,90 L200,110 L380,100" fill="none" stroke="%23ff1a3a" stroke-width="1.6" opacity="0.95"/><path d="M60,220 L290,220" fill="none" stroke="%23ff1a3a" stroke-width="1" opacity="0.7"/><circle cx="200" cy="110" r="5" fill="%23ff1a3a"/><circle cx="380" cy="100" r="4" fill="%23ff1a3a"/><circle cx="60" cy="220" r="3" fill="%23ff1a3a"/><circle cx="290" cy="220" r="3" fill="%23ff1a3a"/></svg>');
+}
+.projects .project:nth-child(2) .project-media {
+  --facet-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice"><polygon points="20,50 380,40 395,55 395,80 380,95 20,85" fill="%2310101a" stroke="%23252530"/><polygon points="20,50 290,42 305,57 305,78 290,93 20,85" fill="%23ff1a3a" opacity="0.85"/><polygon points="20,110 380,100 395,115 395,140 380,155 20,145" fill="%2310101a" stroke="%23252530"/><polygon points="20,110 210,102 225,117 225,138 210,153 20,145" fill="%23ff1a3a" opacity="0.7"/><polygon points="20,170 380,160 395,175 395,200 380,215 20,205" fill="%2310101a" stroke="%23252530"/><polygon points="20,170 340,162 355,177 355,198 340,213 20,205" fill="%23ff1a3a" opacity="0.95"/><polygon points="360,30 395,55 360,80" fill="%2315151c" stroke="%23ff1a3a"/></svg>');
+}
+.projects .project:nth-child(3) .project-media {
+  --facet-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice"><polygon points="200,30 320,125 200,220 80,125" fill="%2310101a" stroke="%23252530"/><polygon points="200,30 320,125 200,125 80,125" fill="%2315151c"/><polygon points="200,125 320,125 200,220" fill="%230c0c14"/><polygon points="200,30 200,125 80,125" fill="%2318181f"/><polygon points="200,90 250,125 200,160 150,125" fill="%23ff1a3a" opacity="0.9"/><polygon points="200,105 230,125 200,145 170,125" fill="%23fff" opacity="0.4"/><line x1="80" y1="125" x2="320" y2="125" stroke="%23ff1a3a" stroke-width="1" opacity="0.6"/><line x1="200" y1="30" x2="200" y2="220" stroke="%23ff1a3a" stroke-width="1" opacity="0.4"/></svg>');
+}
+.projects .project:nth-child(4) .project-media {
+  --facet-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice"><polygon points="0,200 40,140 80,180 120,100 160,160 200,70 240,150 280,90 320,170 360,120 400,180 400,250 0,250" fill="%2310101a" stroke="%23252530"/><polyline points="0,200 40,140 80,180 120,100 160,160 200,70 240,150 280,90 320,170 360,120 400,180" fill="none" stroke="%23ff1a3a" stroke-width="1.6" opacity="0.95"/><circle cx="200" cy="70" r="7" fill="%23ff1a3a"/><circle cx="200" cy="70" r="3" fill="%23fff"/><line x1="0" y1="230" x2="400" y2="230" stroke="%23ff1a3a" stroke-width="0.6" opacity="0.5"/><line x1="200" y1="0" x2="200" y2="250" stroke="%23ff1a3a" stroke-width="0.5" opacity="0.35"/></svg>');
+}
+
+.project-media::before { opacity: 0.25; }
+
+.section-head .meta { font-family: "JetBrains Mono", monospace; opacity: 0.7; }
+.section-head h2     { font-size: clamp(34px, 5vw, 56px); }
+.chip                { font-family: "JetBrains Mono", monospace; letter-spacing: 0; }
+.tl-item h3          { font-size: 22px; letter-spacing: 0.02em; }
+.contact-headline    { font-size: clamp(40px, 6vw, 72px); }
+.about-prose .lede   { font-size: 19px; line-height: 1.5; font-weight: 400; }

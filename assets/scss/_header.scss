@@ -1,0 +1,97 @@
+// ==========================================================================
+// HEADER — site-header, brand, nav, nav-cta
+// ==========================================================================
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 14px var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 0 color-mix(in srgb, var(--accent) 18%, transparent),
+              0 2px 12px 0 color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: 13px;
+}
+
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent), 0 0 4px var(--accent);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.brand-name  { color: var(--fg); }
+.brand-slash { color: var(--accent); }
+.brand-role  { color: var(--fg-dim); }
+
+// Navigation
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  a {
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--fg-dim);
+    border: 1px solid transparent;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+
+    .num { color: var(--accent); font-size: 10px; }
+
+    &:hover {
+      color: var(--fg);
+      border-color: var(--line-bright);
+    }
+
+    &.is-active {
+      color: var(--fg);
+      border-color: var(--accent);
+      background: var(--accent-ghost);
+    }
+  }
+}
+
+.nav-cta {
+  margin-left: 8px;
+  padding: 8px 14px;
+  font-size: 12px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent-soft);
+  box-shadow: inset 0 0 0 0 var(--accent);
+  transition: box-shadow 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+
+  &:hover {
+    box-shadow: inset 0 0 0 40px var(--accent), 0 0 18px var(--accent-soft);
+    color: #000;
+    text-shadow: none;
+  }
+}
+
+// Mobile : masquer la nav
+@media (max-width: 720px) {
+  .nav { display: none; }
+  .site-header { justify-content: space-between; }
+}
