@@ -1,31 +1,236 @@
 // ==========================================================================
-// PROJECTS — grille projets, media, corps texte
+// PROJECTS — carrousel par défaut + mode grille étendu (toggle "voir plus")
 // ==========================================================================
+
+.projects-wrap {
+  position: relative;
+  // Reste dans `.section-inner` — la card active s'aligne avec le titre
+  // de section, donc visuellement centrée par rapport au contenu de la section
+}
 
 .projects {
   display: flex;
-  flex-direction: column;
-  gap: 80px;
+  flex-direction: row;
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 24px clamp(16px, 5vw, 80px);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar { display: none; }
 }
 
 .project {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  flex: 0 0 min(1080px, 86%);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  opacity: 0.4;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  cursor: pointer;
+
+  &.is-active {
+    opacity: 1;
+    cursor: default;
+  }
+
+  // En carrousel, on annule l'alternance .flip — tous les médias en haut
+  &.flip .project-media { order: 0; }
+}
+
+// ---------- Fade gradient sur les bords (carrousel uniquement) ----------
+.projects-wrap::before,
+.projects-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(32px, 7vw, 110px);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.projects-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg) 8%, transparent 100%);
+}
+
+.projects-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg) 8%, transparent 100%);
+}
+
+// ---------- Bandeau de navigation (flèches + dots) ----------
+.projects-nav {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 32px;
+}
 
-  &.flip .project-media { order: 2; }
+.proj-nav {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(0, 0, 0, 0.85);
+  border: 1.5px solid var(--accent);
+  text-shadow: 0 0 10px var(--accent);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 14px color-mix(in srgb, var(--accent) 35%, transparent),
+    inset 0 0 8px color-mix(in srgb, var(--accent) 12%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: all 0.2s ease;
 
-  @media (max-width: 860px) {
-    &,
-    &.flip {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
+  &:hover {
+    background: var(--accent);
+    color: #000;
+    text-shadow: none;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.6),
+      0 0 24px color-mix(in srgb, var(--accent) 65%, transparent);
+  }
 
-    &.flip .project-media { order: 0; }
+  &.is-disabled {
+    opacity: 0.25;
+    cursor: default;
+    pointer-events: none;
   }
 }
+
+// ---------- Dots de pagination ----------
+.proj-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px;
+}
+
+.proj-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--accent) 35%, transparent);
+    border-color: var(--accent);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 50%, transparent);
+  }
+
+  &.is-active {
+    width: 28px;
+    border-radius: 6px;
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow:
+      0 0 10px var(--accent),
+      0 0 2px rgba(0, 0, 0, 0.6);
+  }
+}
+
+// ---------- Toolbar (toggle voir plus / voir moins) ----------
+.projects-toolbar {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.proj-toggle {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 12px 22px;
+  border: 1px solid var(--line-bright);
+  color: var(--fg);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+  text-transform: lowercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+
+  .icon { color: var(--accent); }
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 25%, transparent);
+
+    .icon { text-shadow: 0 0 8px var(--accent); }
+  }
+}
+
+// ==========================================================================
+// MODE ÉTENDU — restaure la grille verticale alternée (ancien comportement)
+// ==========================================================================
+
+#projects.is-expanded {
+  .projects-wrap {
+    &::before, &::after { display: none; }
+  }
+
+  .projects-nav { display: none; }
+
+  .projects {
+    flex-direction: column;
+    gap: 80px;
+    overflow: visible;
+    padding: 0;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+
+  .project {
+    flex: initial;
+    max-width: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    opacity: 1;
+    cursor: default;
+
+    &.flip .project-media { order: 2; }
+
+    @media (max-width: 860px) {
+      &,
+      &.flip {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      &.flip .project-media { order: 0; }
+    }
+  }
+}
+
+// ==========================================================================
+// PROJECT MEDIA — bloc visuel (styles communs aux deux modes)
+// ==========================================================================
 
 .project-media {
   position: relative;
@@ -94,6 +299,10 @@
     }
   }
 }
+
+// ==========================================================================
+// PROJECT BODY — texte / meta / liens
+// ==========================================================================
 
 .project-body {
   .project-num {

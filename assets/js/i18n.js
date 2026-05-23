@@ -17,13 +17,13 @@
     'hero.foot_left':    { en: '↳ scroll to enter', fr: '↳ défiler pour entrer' },
     'hero.foot_right':   { en: 'based in mtl // open for work', fr: 'basé à st-étienne // dispo pour missions' },
     // section heads
-    'sh.about.h':       { en: 'about_me',      fr: 'à_propos' },
+    'sh.about.h':       { en: 'about<span class="accent">_</span>me<span class="underscore">_</span>',      fr: 'à<span class="accent">_</span>propos<span class="underscore">_</span>' },
     'sh.about.meta':    { en: '~/bio.md',       fr: '~/bio.md' },
-    'sh.projects.h':    { en: 'my_projects',   fr: 'mes_projets' },
+    'sh.projects.h':    { en: 'my<span class="accent">_</span>projects<span class="underscore">_</span>',   fr: 'mes<span class="accent">_</span>projets<span class="underscore">_</span>' },
     'sh.projects.meta': { en: '~/work/ • 04 shown', fr: '~/travaux/ • 04 affichés' },
-    'sh.edu.h':         { en: 'education',     fr: 'formation' },
+    'sh.edu.h':         { en: 'education<span class="underscore">_</span>',     fr: 'formation<span class="underscore">_</span>' },
     'sh.edu.meta':      { en: '~/.history',    fr: '~/.parcours' },
-    'sh.contact.h':     { en: 'contact_me',    fr: 'me_contacter' },
+    'sh.contact.h':     { en: 'contact<span class="accent">_</span>me<span class="underscore">_</span>',    fr: 'me<span class="accent">_</span>contacter<span class="underscore">_</span>' },
     'sh.contact.meta':  { en: '~/inbox',       fr: '~/boite_de_reception' },
     // about
     'about.lede': {
@@ -135,7 +135,10 @@
     'email.subject_l': { en: 'subject',  fr: 'sujet' },
     'email.message_l': { en: 'message',  fr: 'message' },
     'email.send':      { en: 'send_message', fr: 'envoyer_message' },
-    'email.cancel':    { en: 'cancel',   fr: 'annuler' }
+    'email.cancel':    { en: 'cancel',   fr: 'annuler' },
+    // projects carousel toggle
+    'proj.see_all':  { en: 'show all projects',  fr: 'voir tous les projets' },
+    'proj.see_less': { en: 'show as carousel',   fr: 'revenir au carrousel' }
   };
 
   function apply(lang) {
@@ -151,7 +154,7 @@
       const attr  = el.dataset.i18nAttr;
       const html  = el.dataset.i18nHtml === '1';
 
-      if (attr) el.setAttribute(attr, value);
+      if (attr) el.setAttribute(attr, html ? value.replace(/<[^>]*>/g, '') : value);
 
       const num    = el.querySelector(':scope > .num');
       const cursor = el.querySelector(':scope > .cv-cursor');
