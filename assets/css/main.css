@@ -577,6 +577,45 @@ section {
   transition: width 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
+/* ── Hero visual — rendu hélicoptère ── */
+.hero-visual {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 56%;
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-visual img {
+  position: absolute;
+  right: -3%;
+  top: 50%;
+  transform: translateY(-54%);
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+  filter:
+    drop-shadow(0 0 12px color-mix(in srgb, var(--accent) 65%, transparent))
+    drop-shadow(0 0 28px color-mix(in srgb, var(--accent) 25%, transparent));
+  user-select: none;
+}
+
+@media (max-width: 960px) {
+  .hero-visual {
+    width: 70%;
+    opacity: 0.45;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-visual {
+    display: none;
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -3044,6 +3083,11 @@ section {
   font-size: 13px !important;
   gap: 12px !important;
 }
+.site-header.is-shrunk .brand-dot {
+  width: 22px !important;
+  height: 22px !important;
+  outline-offset: 2px !important;
+}
 .site-header.is-shrunk .nav a {
   padding: 8px 12px !important;
   font-size: 11px !important;
@@ -3085,24 +3129,47 @@ section {
 }
 
 .brand-dot {
-  width: 22px !important;
-  height: 22px !important;
-  background: var(--accent) !important;
-  border-radius: 0 !important;
+  width: 26px !important;
+  height: 26px !important;
+  background: rgba(10, 10, 10, 0.55) !important; /* fond sombre derrière l'image */
+  border-radius: 3px !important;
   clip-path: none !important;
-  box-shadow: 3px 3px 0 0 rgba(255, 0, 0, 0.25) !important;
+  overflow: hidden !important;
+  animation: none !important; /* désactive le pulse hérité */
+  /* Anneau détaché */
+  outline: 1px solid color-mix(in srgb, var(--accent) 50%, transparent) !important;
+  outline-offset: 3px !important;
+  /* Glow multicouche sur le conteneur */
+  box-shadow:
+    0 0 8px  color-mix(in srgb, var(--accent) 55%, transparent),
+    0 0 20px color-mix(in srgb, var(--accent) 28%, transparent) !important;
   display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  transition: box-shadow 0.25s ease, outline-color 0.25s ease !important;
 }
-.brand-dot::after {
-  content: "AA";
-  color: #fff;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 9px;
-  letter-spacing: 0.5px;
+
+/* L'image elle-même */
+.brand-dot img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+  /* drop-shadow suit les contours réels du logo (transparence alphée) */
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--accent) 50%, transparent)) !important;
+  transition: filter 0.25s ease !important;
+}
+
+/* Hover : glow amplifié */
+.brand:hover .brand-dot {
+  outline-color: color-mix(in srgb, var(--accent) 85%, transparent) !important;
+  box-shadow:
+    0 0 14px color-mix(in srgb, var(--accent) 80%, transparent),
+    0 0 32px color-mix(in srgb, var(--accent) 45%, transparent) !important;
+}
+.brand:hover .brand-dot img {
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--accent) 85%, transparent)) !important;
 }
 
 .brand-slash {
