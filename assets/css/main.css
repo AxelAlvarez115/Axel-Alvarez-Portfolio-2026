@@ -1027,6 +1027,23 @@ section {
   color: var(--accent);
   text-shadow: 0 0 6px var(--accent-soft);
 }
+.project-media .project-screenshot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  z-index: 1;
+  filter: brightness(0.45);
+  transform: scale(1);
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+.project-media:hover .project-screenshot {
+  filter: brightness(0.75);
+  transform: scale(1.04);
+}
 
 .project-body .project-num {
   font-size: 11px;

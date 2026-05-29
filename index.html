@@ -209,9 +209,17 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- ============================================================
+     SECTION : PROJECTS (#03)
+     Carousel de cards projets — chaque <article class="project">
+     représente un projet. Ajouter "flip" sur la classe pour
+     inverser l'ordre media/body. Contrôles en bas : prev/next +
+     dots + toggle carousel ↔ grille.
+     ============================================================ -->
 <section id="projects" data-screen-label="03 Projects">
   <div class="section-inner">
+
+    <!-- En-tête de section -->
     <div class="section-head">
       <span class="num">03 /</span>
       <h2 class="glitch" data-text="my_projects" data-i18n="sh.projects.h" data-i18n-attr="data-text" data-i18n-html="1">my<span class="accent">_</span>projects<span class="underscore">_</span></h2>
@@ -219,128 +227,172 @@
       <span class="meta" data-i18n="sh.projects.meta">~/work/ • 04 shown</span>
     </div>
 
+    <!-- Carousel wrapper -->
     <div class="projects-wrap" id="projectsWrap">
       <div class="projects" id="projectsTrack">
 
-      <article class="project">
-        <div class="project-media">
-          <span class="badge" data-i18n="proj.p1.badge">live</span>
-          <span class="corner tl"></span><span class="corner tr"></span>
-          <span class="corner bl"></span><span class="corner br"></span>
-          <div class="ascii"><span>┌──────────────────────────────┐
-│  <span class="accent">▮ ▮ ▮</span>   nodegraph.io        │
-├──────────────────────────────┤
-│  ◯──────◉──────◯─────◉──────◯ │
-│   ╲    ╱  ╲   ╱  ╲   ╱  ╲   │
-│    ◉──◯    ◉─◯    ◉─◯    ◉  │
-│  realtime graph editor       │
-└──────────────────────────────┘</span></div>
-        </div>
-        <div class="project-body">
-          <div class="project-num">project.01</div>
-          <h3 class="glitch" data-text="nodegraph.io">nodegraph.io</h3>
-          <div class="meta"><span>2025</span><span data-i18n="proj.p1.m2">solo</span><span data-i18n="proj.p1.m3">web app</span></div>
-          <p data-i18n="proj.p1.desc">Collaborative node-graph editor for data pipelines. Multiplayer cursors, time-travel undo, and a custom WebGL renderer that stays at 60fps with 10k+ nodes on screen.</p>
-          <div class="stack">
-            <span class="chip">TypeScript</span><span class="chip">Rust</span><span class="chip">WebGL</span><span class="chip">CRDT</span><span class="chip">Cloudflare</span>
-          </div>
-          <div class="links">
-            <a class="link" href="#"><span data-i18n="proj.link.live_demo">live demo</span><span class="arr">↗</span></a>
-            <a class="link" href="#"><span>github</span><span class="arr">↗</span></a>
-            <a class="link" href="#"><span data-i18n="proj.link.case_study">case study</span><span class="arr">→</span></a>
-          </div>
-        </div>
-      </article>
+        <!-- ─────────────────────────────────────────
+             PROJECT 01 — Senior Love
+             Stack : Express · PostgreSQL · Sequelize · EJS · Bcrypt · Sass
+             ───────────────────────────────────────── -->
+        <article class="project">
 
-      <article class="project flip">
-        <div class="project-media">
-          <span class="badge">v2.3</span>
-          <span class="corner tl"></span><span class="corner tr"></span>
-          <span class="corner bl"></span><span class="corner br"></span>
-          <div class="ascii"><span>    <span class="accent">$ ./deploy --prod</span>
-  ╭────────────────────────╮
-  │ █████████░░░  78%      │
-  │ shipping artifact...   │
-  ╰────────────────────────╯
-   ▓▓▓▓ <span class="accent">SHIPYARD CI</span> ▓▓▓▓
-       zero-config pipelines</span></div>
-        </div>
-        <div class="project-body">
-          <div class="project-num">project.02</div>
-          <h3 class="glitch" data-text="shipyard">shipyard</h3>
-          <div class="meta"><span>2024</span><span data-i18n="proj.p2.m2">team of 3</span><span data-i18n="proj.p2.m3">devtool</span></div>
-          <p data-i18n="proj.p2.desc">Zero-config CI/CD for small teams. Detects your stack, writes the pipeline, and ships. Built the orchestrator and the live log streaming layer.</p>
-          <div class="stack">
-            <span class="chip">Go</span><span class="chip">React</span><span class="chip">Docker</span><span class="chip">NATS</span><span class="chip">Postgres</span>
+          <!-- Visuel : screenshot ou ASCII art -->
+          <div class="project-media">
+            <span class="badge" data-i18n="proj.p1.badge">V2</span>
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <img src="assets/img/senior-love.jpg" alt="Senior Love — application de rencontres pour seniors" class="project-screenshot" />
           </div>
-          <div class="links">
-            <a class="link" href="#"><span>shipyard.dev</span><span class="arr">↗</span></a>
-            <a class="link" href="#"><span>github</span><span class="arr">↗</span></a>
-          </div>
-        </div>
-      </article>
 
-      <article class="project">
-        <div class="project-media">
-          <span class="badge">oss</span>
-          <span class="corner tl"></span><span class="corner tr"></span>
-          <span class="corner bl"></span><span class="corner br"></span>
-          <div class="ascii"><span>  <span class="accent">▙▟ querymancer ▙▟</span>
-  ┌──────────────────────┐
-  │ SELECT * FROM users  │
-  │  WHERE id = ?        │
-  ├──────────────────────┤
-  │ ✓ 12ms · 1.4k rows   │
-  │ ✓ index used         │
-  └──────────────────────┘
-   sql notebook for humans</span></div>
-        </div>
-        <div class="project-body">
-          <div class="project-num">project.03</div>
-          <h3 class="glitch" data-text="querymancer">querymancer</h3>
-          <div class="meta"><span>2024</span><span data-i18n="proj.p3.m2">solo</span><span data-i18n="proj.p3.m3">open source</span></div>
-          <p data-i18n="proj.p3.desc">A SQL notebook that doesn't suck. Local-first, blazing-fast schema introspection, and AI completions that actually know your tables. 4.2k stars on GitHub.</p>
-          <div class="stack">
-            <span class="chip">Tauri</span><span class="chip">Rust</span><span class="chip">Svelte</span><span class="chip">DuckDB</span>
+          <!-- Contenu textuel -->
+          <div class="project-body">
+            <div class="project-num">project.01</div>
+            <h3 class="glitch" data-text="Senior Love">Senior Love</h3>
+            <div class="meta">
+              <span>2023</span>
+              <span data-i18n="proj.p1.m2">team</span>
+              <span data-i18n="proj.p1.m3">web app</span>
+            </div>
+            <p data-i18n="proj.p1.desc">Application de rencontres pour seniors. Profils personnalisés avec centres d'intérêt et affinités, messagerie et demandes de contact, événements locaux avec inscriptions, et un dashboard d'administration complet.</p>
+            <div class="stack">
+              <span class="chip">Express</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Sequelize</span>
+              <span class="chip">EJS</span>
+              <span class="chip">Bcrypt</span>
+              <span class="chip">Sass</span>
+            </div>
+            <div class="links">
+              <a class="link" href="https://github.com/AxelAlvarez115/Senior-Love"><span>github</span><span class="arr">↗</span></a>
+            </div>
           </div>
-          <div class="links">
-            <a class="link" href="#"><span>github</span><span class="arr">↗</span></a>
-            <a class="link" href="#"><span>docs</span><span class="arr">↗</span></a>
-          </div>
-        </div>
-      </article>
 
-      <article class="project flip">
-        <div class="project-media">
-          <span class="badge">side</span>
-          <span class="corner tl"></span><span class="corner tr"></span>
-          <span class="corner bl"></span><span class="corner br"></span>
-          <div class="ascii"><span>  ░░░░░░░░░░░░░░░░░░░░░░
-  ░ <span class="accent">SYN/STATIC</span>   FM 88.6 ░
-  ░ ▂▃▅▇█▇▅▃▂ ░ ▂▃▅▇█▇▅▃▂ ░
-  ░ now playing:         ░
-  ░  → "fragments.mp3"   ░
-  ░░░░░░░░░░░░░░░░░░░░░░░
-   webradio · live mixing</span></div>
-        </div>
-        <div class="project-body">
-          <div class="project-num">project.04</div>
-          <h3 class="glitch" data-text="syn/static">syn/static</h3>
-          <div class="meta"><span>2023</span><span data-i18n="proj.p4.m2">solo</span><span data-i18n="proj.p4.m3">side project</span></div>
-          <p data-i18n="proj.p4.desc">A tiny web radio that mixes ambient + synthwave 24/7. WebAudio crossfader, FFT visualizer, and a quietly judgy "skip" button.</p>
-          <div class="stack">
-            <span class="chip">Web Audio</span><span class="chip">Canvas</span><span class="chip">SvelteKit</span>
+        </article>
+        <!-- /PROJECT 01 -->
+
+        <!-- ─────────────────────────────────────────
+             PROJECT 02 — ComparOperator
+             Stack : PHP · MySQL · Tailwind CSS · JavaScript
+             ───────────────────────────────────────── -->
+        <article class="project flip">
+
+          <!-- Visuel : screenshot ou ASCII art -->
+          <div class="project-media">
+            <span class="badge">v1</span>
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <img src="assets/img/compar-operator.jpg" alt="ComparOperator — comparateur de tour-opérateurs" class="project-screenshot" />
           </div>
-          <div class="links">
-            <a class="link" href="#"><span data-i18n="proj.link.tune_in">tune in</span><span class="arr">↗</span></a>
-            <a class="link" href="#"><span data-i18n="proj.link.writeup">writeup</span><span class="arr">→</span></a>
+
+          <!-- Contenu textuel -->
+          <div class="project-body">
+            <div class="project-num">project.02</div>
+            <h3 class="glitch" data-text="ComparOperator">ComparOperator</h3>
+            <div class="meta">
+              <span>2025</span>
+              <span data-i18n="proj.p2.m2">team of 3</span>
+              <span data-i18n="proj.p2.m3">web app</span>
+            </div>
+            <p data-i18n="proj.p2.desc">Plateforme de comparaison de tour-opérateurs par destination. Architecture PHP avec pattern Repository, PDO/MySQL, et authentification par rôles. Reviews avec notation étoiles chargées en AJAX, panel admin pour gérer les données.</p>
+            <div class="stack">
+              <span class="chip">PHP</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">Tailwind CSS</span>
+              <span class="chip">JavaScript</span>
+            </div>
+            <div class="links">
+              <a class="link" href="https://github.com/AxelAlvarez115/ComparOperator"><span>github</span><span class="arr">↗</span></a>
+            </div>
           </div>
-        </div>
-      </article>
+
+        </article>
+        <!-- /PROJECT 02 -->
+
+        <!-- ─────────────────────────────────────────
+             PROJECT 03 — Combat PHP
+             Stack : PHP · PDO · MySQL · CSS
+             ───────────────────────────────────────── -->
+        <article class="project">
+
+          <!-- Visuel : screenshot ou ASCII art -->
+          <div class="project-media">
+            <span class="badge">POO</span>
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <img src="assets/img/poo-combat.jpg" alt="Combat PHP — jeu de combat tour par tour en PHP orienté objet" class="project-screenshot" />
+          </div>
+
+          <!-- Contenu textuel -->
+          <div class="project-body">
+            <div class="project-num">project.03</div>
+            <h3 class="glitch" data-text="Combat PHP">Combat PHP</h3>
+            <div class="meta">
+              <span>2024</span>
+              <span data-i18n="proj.p3.m2">solo</span>
+              <span data-i18n="proj.p3.m3">side project</span>
+            </div>
+            <p data-i18n="proj.p3.desc">Jeu de combat tour par tour en PHP pur avec POO. Héros persistés en base via PDO, autoloading custom, hydratation des objets depuis les résultats SQL. Sprint 2 introduit héritage et polymorphisme : classes de héros (guerrier/mage/archer) avec attaques spéciales et interactions de dégâts entre types.</p>
+            <div class="stack">
+              <span class="chip">PHP</span>
+              <span class="chip">PDO</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">CSS</span>
+            </div>
+            <div class="links">
+              <a class="link" href="#"><span>github</span><span class="arr">↗</span></a>
+              <a class="link" href="#"><span>live</span><span class="arr">↗</span></a>
+            </div>
+          </div>
+
+        </article>
+        <!-- /PROJECT 03 -->
+
+        <!-- ─────────────────────────────────────────
+             PROJECT 04 — MyInsta
+             Stack : PHP · MySQL · Tailwind CSS · JavaScript · PDO
+             ───────────────────────────────────────── -->
+        <article class="project flip">
+
+          <!-- Visuel : screenshot ou ASCII art -->
+          <div class="project-media">
+            <span class="badge">clone</span>
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <img src="assets/img/my-insta.jpg" alt="MyInsta — clone Instagram en PHP vanilla" class="project-screenshot" />
+          </div>
+
+          <!-- Contenu textuel -->
+          <div class="project-body">
+            <div class="project-num">project.04</div>
+            <h3 class="glitch" data-text="MyInsta">MyInsta</h3>
+            <div class="meta">
+              <span>2025</span>
+              <span data-i18n="proj.p4.m2">team of 3</span>
+              <span data-i18n="proj.p4.m3">web app</span>
+            </div>
+            <p data-i18n="proj.p4.desc">Clone Instagram minimaliste en PHP vanilla. Upload de photos, likes et commentaires en AJAX, système de profils avec avatar et bio. Pas de framework — architecture MVC maison avec PDO et sessions PHP.</p>
+            <div class="stack">
+              <span class="chip">PHP</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">Tailwind CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">PDO</span>
+            </div>
+            <div class="links">
+              <a class="link" href="#"><span>github</span><span class="arr">↗</span></a>
+              <a class="link" href="#"><span>live</span><span class="arr">↗</span></a>
+            </div>
+          </div>
+
+        </article>
+        <!-- /PROJECT 04 -->
 
       </div>
     </div>
+    <!-- /Carousel wrapper -->
 
+    <!-- Contrôles de navigation (prev / dots / next) -->
     <div class="projects-nav" id="projectsNav">
       <button class="proj-nav proj-prev" id="projPrev" type="button" aria-label="Previous project">
         <span aria-hidden="true">←</span>
@@ -351,6 +403,7 @@
       </button>
     </div>
 
+    <!-- Bouton toggle : carousel ↔ grille complète -->
     <div class="projects-toolbar">
       <button class="proj-toggle" id="projToggle" type="button">
         <span class="icon" aria-hidden="true">⇅</span>
@@ -358,8 +411,10 @@
         <span class="lbl lbl-less" data-i18n="proj.see_less" hidden>show as carousel</span>
       </button>
     </div>
+
   </div>
 </section>
+<!-- /SECTION PROJECTS -->
 
 <!-- EDUCATION -->
 <section id="education" data-screen-label="04 Education">
@@ -373,34 +428,31 @@
 
     <div class="timeline">
       <div class="tl-item">
-        <div class="date" data-i18n="edu.e1.date">2022 — 2024</div>
-        <h3 class="glitch" data-text="m.sc. computer science" data-i18n="edu.e1.h" data-i18n-attr="data-text">m.sc. computer science</h3>
-        <div class="school">École Polytechnique de Montréal</div>
-        <p class="desc" data-i18n="edu.e1.desc">Specialization in distributed systems &amp; programming languages. Thesis on incremental computation in collaborative editors.</p>
+        <div class="date" data-i18n="edu.e1.date">2026</div>
+        <h3 class="glitch" data-text="Développeur Web et Web Mobile" data-i18n="edu.e1.h" data-i18n-attr="data-text">Développeur Web et Web Mobile</h3>
+        <div class="school">École Garage4O4 – Roanne</div>
         <div class="tags">
-          <span class="chip">distributed systems</span>
-          <span class="chip">CRDTs</span>
-          <span class="chip">compilers</span>
+          <span class="chip">React</span>
+          <span class="chip">PHP/Symfony</span>
+          <span class="chip">Projets agiles</span>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="date" data-i18n="edu.e2.date">2018 — 2022</div>
-        <h3 class="glitch" data-text="b.eng. software engineering" data-i18n="edu.e2.h" data-i18n-attr="data-text">b.eng. software engineering</h3>
-        <div class="school">McGill University</div>
-        <p class="desc" data-i18n="edu.e2.desc">First-class honours. Research assistant in HCI lab building tools for live coding performance.</p>
+        <div class="date" data-i18n="edu.e2.date">2020</div>
+        <h3 class="glitch" data-text="BTS CIM – Conception et Industrialisation en Microtechniques" data-i18n="edu.e2.h" data-i18n-attr="data-text">BTS CIM – Conception et Industrialisation en Microtechniques</h3>
+        <div class="school">Lycée Aragon Picasso – Givors</div>
         <div class="tags">
-          <span class="chip">algorithms</span>
-          <span class="chip">HCI</span>
-          <span class="chip">graphics</span>
+          <span class="chip">Systèmes miniaturisés</span>
+          <span class="chip">Électronique</span>
+          <span class="chip">Maintenance de précision</span>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="date" data-i18n="edu.e3.date">ongoing</div>
-        <h3 class="glitch" data-text="self-directed" data-i18n="edu.e3.h" data-i18n-attr="data-text">self-directed</h3>
-        <div class="school" data-i18n="edu.e3.school">the internet • conferences • libraries</div>
-        <p class="desc" data-i18n="edu.e3.desc">Currently chewing through Rust, WebGPU, and the postgres source code. Recent rabbit holes: B-trees, CRDTs, and how compilers schedule registers.</p>
+        <div class="date" data-i18n="edu.e3.date">2018</div>
+        <h3 class="glitch" data-text="Bac Pro Microtechniques" data-i18n="edu.e3.h" data-i18n-attr="data-text">Bac Pro Microtechniques</h3>
+        <div class="school">Lycée Le Marais Sainte-Thérèse – Saint-Étienne</div>
       </div>
     </div>
   </div>

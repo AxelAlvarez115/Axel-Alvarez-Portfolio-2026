@@ -11,11 +11,11 @@
     // hero
     'hero.eyebrow':      { en: 'portfolio // full-stack engineer',   fr: 'portfolio // développeur full-stack' },
     'hero.available':    { en: 'AVAILABLE',         fr: 'DISPONIBLE' },
-    'hero.location':     { en: 'MONTRÉAL · QC',     fr: 'SAINT-ÉTIENNE · FR' },
+    'hero.location':     { en: 'SAINT-ÉTIENNE · FR', fr: 'SAINT-ÉTIENNE · FR' },
     'hero.cta_projects': { en: 'view_projects',     fr: 'voir_projets' },
     'hero.cta_contact':  { en: './contact',          fr: './contact' },
     'hero.foot_left':    { en: '↳ scroll to enter', fr: '↳ défiler pour entrer' },
-    'hero.foot_right':   { en: 'based in mtl // open for work', fr: 'basé à st-étienne // dispo pour missions' },
+    'hero.foot_right':   { en: 'based in saint-étienne // open for work', fr: 'basé à st-étienne // dispo pour missions' },
     // section heads
     'sh.about.h':       { en: 'about<span class="accent">_</span>me<span class="underscore">_</span>',      fr: 'à<span class="accent">_</span>propos<span class="underscore">_</span>' },
     'sh.about.meta':    { en: '~/bio.md',       fr: '~/bio.md' },
@@ -79,25 +79,12 @@
     'proj.link.tune_in':    { en: 'tune in',     fr: 'écouter' },
     'proj.link.writeup':    { en: 'writeup',     fr: 'article' },
     // education
-    'edu.e1.date': { en: '2022 — 2024', fr: '2022 — 2024' },
-    'edu.e1.h':    { en: 'm.sc. computer science',       fr: 'master en informatique' },
-    'edu.e1.desc': {
-      en: 'Specialization in distributed systems & programming languages. Thesis on incremental computation in collaborative editors.',
-      fr: 'Spécialisation en systèmes distribués & langages de programmation. Mémoire sur le calcul incrémental dans les éditeurs collaboratifs.'
-    },
-    'edu.e2.date': { en: '2018 — 2022', fr: '2018 — 2022' },
-    'edu.e2.h':    { en: 'b.eng. software engineering',  fr: 'licence ingénierie logicielle' },
-    'edu.e2.desc': {
-      en: 'First-class honours. Research assistant in HCI lab building tools for live coding performance.',
-      fr: 'Mention très bien. Assistant de recherche en labo IHM, à construire des outils pour le live coding.'
-    },
-    'edu.e3.date':   { en: 'ongoing',   fr: 'en cours' },
-    'edu.e3.h':      { en: 'self-directed', fr: 'autoformation' },
-    'edu.e3.school': { en: 'the internet • conferences • libraries', fr: 'internet • conférences • bibliothèques' },
-    'edu.e3.desc': {
-      en: 'Currently chewing through Rust, WebGPU, and the postgres source code. Recent rabbit holes: B-trees, CRDTs, and how compilers schedule registers.',
-      fr: 'En train de digérer Rust, WebGPU, et le code source de postgres. Récents terriers : B-trees, CRDTs, et comment les compilateurs ordonnancent les registres.'
-    },
+    'edu.e1.date': { en: '2026', fr: '2026' },
+    'edu.e1.h':    { en: 'Développeur Web et Web Mobile', fr: 'Développeur Web et Web Mobile' },
+    'edu.e2.date': { en: '2020', fr: '2020' },
+    'edu.e2.h':    { en: 'BTS CIM – Conception et Industrialisation en Microtechniques', fr: 'BTS CIM – Conception et Industrialisation en Microtechniques' },
+    'edu.e3.date': { en: '2018', fr: '2018' },
+    'edu.e3.h':    { en: 'Bac Pro Microtechniques', fr: 'Bac Pro Microtechniques' },
     // contact
     'contact.headline': {
       en: 'let\'s<span class="accent">_</span>build<span class="accent">_</span>something<span class="accent">_</span>loud.',
@@ -110,7 +97,7 @@
     'contact.book': { en: 'book a call',      fr: 'réserver un appel' },
     'contact.cv':   { en: 'download cv.pdf',  fr: 'télécharger cv.pdf' },
     'contact.meta.location_k': { en: '// location',    fr: '// localisation' },
-    'contact.meta.location_v': { en: 'Montréal, QC <span class="accent">●</span>', fr: 'Saint-Étienne, FR <span class="accent">●</span>' },
+    'contact.meta.location_v': { en: 'Saint-Étienne, FR <span class="accent">●</span>', fr: 'Saint-Étienne, FR <span class="accent">●</span>' },
     'contact.meta.tz_k':       { en: '// timezone',    fr: '// fuseau' },
     'contact.meta.avail_k':    { en: '// availability', fr: '// disponibilité' },
     'contact.meta.avail_v':    { en: '<span class="accent">●</span> open · jun 2026', fr: '<span class="accent">●</span> dispo · juin 2026' },
