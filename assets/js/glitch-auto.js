@@ -1,5 +1,8 @@
 /* ---------- glitch automatique ---------- */
 (function () {
+  // Pas de glitch en boucle si l'utilisateur préfère un mouvement réduit.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
   const DURATION = 600;  // durée de l'animation (ms)
   const COOLDOWN  = 2000; // délai minimum entre deux triggers sur le même élément
   const TOLERANCE = 40;   // tolérance en px autour du haut de la section

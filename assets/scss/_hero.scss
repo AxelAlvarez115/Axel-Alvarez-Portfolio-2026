@@ -29,8 +29,10 @@
     ),
     radial-gradient(1200px circle at 10% 110%, #1a0000, transparent 60%),
     #000;
-  filter: blur(40px);
-  transition: background-position 0.2s ease;
+  filter: blur(24px);
+  pointer-events: none;
+  // Isole les re-rasterisations du fond flou du reste de la page.
+  contain: layout style paint;
 }
 
 .hero-grid {

@@ -45,16 +45,24 @@ body {
   &::after {
     content: "";
     position: fixed;
-    inset: -50%;
+    // -10% suffit pour couvrir le viewport sous translate ±3% ; -50%
+    // gaspillait ~3× les pixels recomposés à chaque frame.
+    inset: -10%;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
     opacity: 0.05;
     pointer-events: none;
     z-index: 91;
     mix-blend-mode: screen;
+    // Garde le grain sur sa propre couche compositée (transform sans repaint).
+    will-change: transform;
     animation: grainShift 1.6s steps(6) infinite;
   }
 
   &[data-grain="off"]::after { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after { animation: none; }
 }
 
 ::selection { background: var(--accent); color: #000; }
