@@ -46,33 +46,33 @@
     'stack.title':    { en: '// stack.config', fr: '// stack.config' },
     'stack.frontend': { en: 'frontend',         fr: 'frontend' },
     'stack.backend':  { en: 'backend',           fr: 'backend' },
-    'stack.infra':    { en: 'infra',             fr: 'infrastructure' },
+    'stack.infra':    { en: 'tools',             fr: 'outils' },
     'stack.learning': { en: 'currently_learning', fr: 'apprentissage_en_cours' },
     // projects
     'proj.p1.badge': { en: 'live',      fr: 'en ligne' },
-    'proj.p1.m2':    { en: 'solo',      fr: 'solo' },
+    'proj.p1.m2':    { en: 'team',      fr: 'équipe' },
     'proj.p1.m3':    { en: 'web app',   fr: 'app web' },
     'proj.p1.desc': {
-      en: 'Collaborative node-graph editor for data pipelines. Multiplayer cursors, time-travel undo, and a custom WebGL renderer that stays at 60fps with 10k+ nodes on screen.',
-      fr: "Éditeur de node-graphs collaboratif pour pipelines de données. Curseurs multijoueurs, undo « time-travel », et un moteur de rendu WebGL maison qui tient 60fps avec 10k+ nœuds à l'écran."
+      en: 'Dating app for seniors. Custom profiles with interests and affinities, messaging and contact requests, local events with registration, and a full admin dashboard.',
+      fr: "Application de rencontres pour seniors. Profils personnalisés avec centres d'intérêt et affinités, messagerie et demandes de contact, événements locaux avec inscriptions, et un dashboard d'administration complet."
     },
     'proj.p2.m2':    { en: 'team of 3', fr: 'équipe de 3' },
-    'proj.p2.m3':    { en: 'devtool',   fr: 'outil dev' },
+    'proj.p2.m3':    { en: 'web app',   fr: 'app web' },
     'proj.p2.desc': {
-      en: 'Zero-config CI/CD for small teams. Detects your stack, writes the pipeline, and ships. Built the orchestrator and the live log streaming layer.',
-      fr: "CI/CD zéro config pour petites équipes. Détecte votre stack, écrit le pipeline, et déploie. J'ai construit l'orchestrateur et la couche de streaming de logs en direct."
+      en: 'Tour-operator comparison platform by destination. PHP architecture with Repository pattern, PDO/MySQL, and role-based authentication. Star-rated reviews loaded via AJAX, admin panel to manage data.',
+      fr: "Plateforme de comparaison de tour-opérateurs par destination. Architecture PHP avec pattern Repository, PDO/MySQL, et authentification par rôles. Reviews avec notation étoiles chargées en AJAX, panel admin pour gérer les données."
     },
     'proj.p3.m2':    { en: 'solo',        fr: 'solo' },
-    'proj.p3.m3':    { en: 'open source', fr: 'open source' },
+    'proj.p3.m3':    { en: 'side project', fr: 'side project' },
     'proj.p3.desc': {
-      en: "A SQL notebook that doesn't suck. Local-first, blazing-fast schema introspection, and AI completions that actually know your tables. 4.2k stars on GitHub.",
-      fr: "Un notebook SQL qui ne pue pas. Local-first, introspection de schéma ultra rapide, et complétions IA qui connaissent vraiment vos tables. 4.2k stars sur GitHub."
+      en: 'Turn-based combat game in pure PHP with OOP. Heroes persisted via PDO, custom autoloading, object hydration from SQL results. Sprint 2 introduces inheritance and polymorphism: hero classes (warrior/mage/archer) with special attacks and damage type interactions.',
+      fr: "Jeu de combat tour par tour en PHP pur avec POO. Héros persistés en base via PDO, autoloading custom, hydratation des objets depuis les résultats SQL. Sprint 2 introduit héritage et polymorphisme : classes de héros (guerrier/mage/archer) avec attaques spéciales et interactions de dégâts entre types."
     },
-    'proj.p4.m2':    { en: 'solo',         fr: 'solo' },
-    'proj.p4.m3':    { en: 'side project', fr: 'side project' },
+    'proj.p4.m2':    { en: 'team of 3',  fr: 'équipe de 3' },
+    'proj.p4.m3':    { en: 'web app',    fr: 'app web' },
     'proj.p4.desc': {
-      en: 'A tiny web radio that mixes ambient + synthwave 24/7. WebAudio crossfader, FFT visualizer, and a quietly judgy "skip" button.',
-      fr: 'Une mini web radio qui mixe ambient + synthwave 24/7. Crossfader WebAudio, visualiseur FFT, et un bouton « skip » discrètement moralisateur.'
+      en: 'Minimalist Instagram clone in vanilla PHP. Photo uploads, likes and comments via AJAX, profile system with avatar and bio. No framework — custom MVC architecture with PDO and PHP sessions.',
+      fr: "Clone Instagram minimaliste en PHP vanilla. Upload de photos, likes et commentaires en AJAX, système de profils avec avatar et bio. Pas de framework — architecture MVC maison avec PDO et sessions PHP."
     },
     'proj.link.live_demo':  { en: 'live demo',   fr: 'démo live' },
     'proj.link.case_study': { en: 'case study',  fr: 'étude de cas' },
