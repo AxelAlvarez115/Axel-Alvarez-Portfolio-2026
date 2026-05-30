@@ -1,6 +1,6 @@
 # axel_alvarez — portfolio
 
-Personal portfolio site for Axel Alvarez, full-stack developer based in Montréal.
+Personal portfolio site for Axel Alvarez, full-stack developer based in Saint-Étienne.
 
 ## Stack
 
@@ -45,7 +45,13 @@ assets/
     scrollspy.js          → active section highlighting
     mobile-burger.js      → mobile nav drawer
     contact-glitch.js     → glitch effect on contact section
+    glitch-auto.js        → automatic timed glitch bursts on targeted elements
     email-modal.js        → contact form modal (mailto: submission)
+    cv-modal.js           → CV preview modal (in-page PDF viewer)
+    book-call.js          → "Book a call" CTA button behavior
+    heli-toggle.js        → helicopter Easter egg toggle
+    music-visualizer.js   → ambient audio player with canvas visualizer
+    projects-carousel.js  → touch/drag carousel for project cards
 ```
 
 ## Sections
