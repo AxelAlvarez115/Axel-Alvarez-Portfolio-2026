@@ -643,6 +643,9 @@ section {
   .hero-visual {
     display: none;
   }
+  .heli-toggle {
+    display: none;
+  }
 }
 
 /* Évite que "axel_alvarez_" ne soit coupé entre ~380px et 480px : la base
