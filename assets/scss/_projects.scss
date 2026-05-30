@@ -2,6 +2,30 @@
 // PROJECTS — carrousel par défaut + mode grille étendu (toggle "voir plus")
 // ==========================================================================
 
+// Carrousel plein écran — la section occupe toute la hauteur du viewport
+#projects:not(.is-expanded) {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+
+  .section-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects {
+    flex: 1;
+    align-items: center;
+  }
+}
+
 .projects-wrap {
   position: relative;
   // Reste dans `.section-inner` — la card active s'aligne avec le titre
@@ -24,13 +48,14 @@
 }
 
 .project {
-  flex: 0 0 min(1080px, 86%);
+  flex: 0 0 min(1080px, 90%);
   scroll-snap-align: center;
   scroll-snap-stop: always;
 
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
 
   opacity: 0.4;
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -41,8 +66,13 @@
     cursor: default;
   }
 
-  // En carrousel, on annule l'alternance .flip — tous les médias en haut
+  // En carrousel, tous les médias à gauche (annule .flip)
   &.flip .project-media { order: 0; }
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 // ---------- Fade gradient sur les bords (carrousel uniquement) ----------
