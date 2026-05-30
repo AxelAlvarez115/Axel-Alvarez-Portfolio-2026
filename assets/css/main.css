@@ -1997,6 +1997,123 @@ body.email-modal-open {
     justify-content: center;
   }
 }
+/* ── Music visualizer ── */
+.music-controls {
+  position: fixed;
+  bottom: 24px;
+  left: 56px;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.music-btn {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--fg-mute);
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.music-btn:hover,
+.music-btn.is-playing {
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.music-icon { font-size: 8px; }
+
+.music-volume {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  border: 1px solid var(--accent);
+  border-left: none;
+  padding: 5px 10px;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--accent);
+}
+.music-btn.is-playing ~ .music-volume,
+.music-controls:has(.music-btn.is-playing) .music-volume {
+  display: flex;
+}
+.vol-icon { font-size: 8px; opacity: 0.7; }
+.vol-val  { min-width: 18px; text-align: right; }
+
+input[type="range"]#volumeSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 72px;
+  height: 2px;
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]#volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 6px var(--accent);
+}
+input[type="range"]#volumeSlider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 6px var(--accent);
+}
+
+@media (max-width: 720px) {
+  /* cv-bars cachées → on revient à gauche */
+  .music-controls {
+    left: 16px;
+    bottom: 16px;
+  }
+  input[type="range"]#volumeSlider {
+    width: 52px;
+  }
+  .vol-val {
+    display: none;
+  }
+}
+
+.music-viz {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  display: none;
+}
+.music-viz.is-active {
+  display: block;
+}
+
+.viz-canvas {
+  position: absolute;
+  display: block;
+  image-rendering: pixelated;
+}
+.viz-left  { left: 0;  top: 0; }
+.viz-right { right: 0; top: 0; }
+
+@media (max-width: 640px) {
+  .music-btn { bottom: 16px; left: 16px; }
+}
+
 /* ── CV preview modal ── */
 body.cv-modal-open { overflow: hidden; }
 
