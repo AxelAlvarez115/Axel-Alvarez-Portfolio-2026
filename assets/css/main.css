@@ -582,6 +582,40 @@ section {
   z-index: 4;
   pointer-events: none;
   overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.hero-visual.heli-on {
+  opacity: 1;
+}
+
+.heli-toggle {
+  position: absolute;
+  bottom: 52px;
+  right: 20px;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--fg-mute);
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.heli-toggle:hover {
+  opacity: 1;
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.heli-toggle.heli-on {
+  opacity: 1;
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
 .hero-visual img {
