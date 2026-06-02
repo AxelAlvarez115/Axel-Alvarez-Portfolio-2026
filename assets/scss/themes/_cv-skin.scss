@@ -445,6 +445,10 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
   .nobr { white-space: nowrap; display: inline-block; }
 }
 
+.hero-name--nocaps {
+  text-transform: none !important;
+}
+
 @keyframes blink {
   0%, 50%       { opacity: 1; }
   50.01%, 100%  { opacity: 0; }

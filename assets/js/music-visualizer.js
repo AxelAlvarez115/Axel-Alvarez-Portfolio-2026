@@ -122,6 +122,22 @@
     rafId = requestAnimationFrame(vizLoop);
   }
 
+  // ── Hero title ───────────────────────────────────────────────
+  const heroName = document.querySelector('.hero-name');
+
+  function setHeroTitle(name, dataText, nocaps) {
+    if (!heroName) return;
+    heroName.classList.remove('is-switching');
+    void heroName.offsetWidth;
+    heroName.setAttribute('data-text', dataText);
+    heroName.classList.toggle('hero-name--nocaps', !!nocaps);
+    const parts = name.split('_');
+    heroName.innerHTML =
+      parts[0] + '<span class="accent">_</span>' + parts[1] + '<span class="underscore">_</span>';
+    heroName.classList.add('is-switching');
+    setTimeout(() => heroName.classList.remove('is-switching'), 550);
+  }
+
   // ── Controls ─────────────────────────────────────────────────
   function start() {
     if (!actx) buildAudio();
@@ -131,6 +147,7 @@
     vizEl.classList.add('is-active');
     btn.classList.add('is-playing');
     btn.querySelector('.music-icon').textContent = '■';
+    setHeroTitle('One_DowNz', 'One_DowNz', true);
     vizLoop();
   }
 
@@ -142,6 +159,7 @@
     vizEl.classList.remove('is-active');
     btn.classList.remove('is-playing');
     btn.querySelector('.music-icon').textContent = '▶';
+    setHeroTitle('axel_alvarez', 'axel_alvarez', false);
     [cvLeft, cvRight].forEach(cv => {
       cv.getContext('2d').clearRect(0, 0, cv.width, cv.height);
     });

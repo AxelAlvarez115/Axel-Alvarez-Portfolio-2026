@@ -3847,6 +3847,23 @@ section {
   white-space: nowrap;
   display: inline-block;
 }
+.hero-name--nocaps {
+  text-transform: none !important;
+}
+.hero-name.is-switching {
+  animation: glitch-jitter 0.55s steps(2) 1 !important;
+}
+.hero-name.is-switching::before {
+  display: block !important;
+  animation: glitch-a 0.55s steps(2) 1 !important;
+  opacity: 1 !important;
+}
+.hero-name.is-switching::after {
+  display: block !important;
+  animation: glitch-b 0.55s steps(2) 1 !important;
+  opacity: 1 !important;
+  color: var(--accent) !important;
+}
 
 @keyframes blink {
   0%, 50% {
