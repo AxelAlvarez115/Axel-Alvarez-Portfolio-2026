@@ -27,20 +27,20 @@
     'sh.contact.meta':  { en: '~/inbox',       fr: '~/boite_de_reception' },
     // about
     'about.lede': {
-      en: "I'm a full-stack developer who likes the parts of the stack other people don't want to think about — schemas, build pipelines, edge cases at 3am.",
-      fr: "Je suis développeur full-stack et j'aime les parties de la stack que les autres préfèrent ignorer — schémas, pipelines de build, edge cases à 3h du mat."
+      en: "Web Development Student & Aspiring Application Developer, passionate about building smooth and high-performing user interfaces.",
+      fr: "Développeur Web en formation et futur Concepteur Développeur d'Applications, je me passionne pour la conception d'applications performantes et d'interfaces fluides."
     },
     'about.p1': {
-      en: 'I build <strong>web apps</strong>, <strong>internal tools</strong>, and the occasional <strong>weird side project</strong>. Most of my work lives somewhere between TypeScript and Postgres, with a healthy obsession for low-latency UI and clean API contracts.',
-      fr: 'Je construis des <strong>apps web</strong>, des <strong>outils internes</strong>, et de temps en temps un <strong>side project bizarre</strong>. La plupart de mon travail vit quelque part entre TypeScript et Postgres, avec une saine obsession pour les UI à faible latence et les contrats d\'API propres.'
+      en: 'Currently studying web development, I am proficient in the JavaScript ecosystem (Node.js, Express) and database management with PostgreSQL. I have also developed solid knowledge of the PHP ecosystem. Following a highly rewarding initial experience in a web agency, I am now seeking an apprenticeship (2026-2027) to achieve my Application Developer (CDA) certification, with a strong focus on Front-End development.',
+      fr: 'Actuellement étudiant, je maîtrise les technologies de l\'écosystème JavaScript (Node.js, Express) ainsi que la gestion de bases de données avec PostgreSQL. J\'ai également développé de solides connaissances dans l\'écosystème PHP. Fort d\'une première expérience pratique très formatrice en agence, je cherche aujourd\'hui une alternance (2026-2027) pour préparer mon titre de Concepteur Développeur d\'Applications (CDA), avec une forte affinité pour le développement Front-End.'
     },
     'about.p2': {
-      en: "Before software I studied computer engineering. Before that, I was the kid who took apart the family DVD player. Some things don't change.",
-      fr: "Avant le logiciel j'ai étudié la microtechnique. Avant ça, j'étais le gosse qui démontait le lecteur DVD familial. Certaines choses ne changent pas."
+      en: "Inquisitive and rigorous, I enjoy designing clean web architectures, from back-end logic down to the final user experience.",
+      fr: "Curieux et rigoureux, j'aime concevoir des architectures web propres, de la logique back-end jusqu'à l'expérience utilisateur finale."
     },
     'about.p3': {
-      en: 'Outside the terminal: lifting heavy things, brutalist architecture, and over-engineering my coffee setup.',
-      fr: 'En dehors du terminal : soulever de la fonte, architecture brutaliste, et sur-ingénierie de mon setup café.'
+      en: 'Outside the terminal: Passionate about tech, creative projects, and immersive universes.',
+      fr: 'En dehors du terminal : Passionné de tech, de projets créatifs et d\'univers immersifs.'
     },
     // stack
     'stack.title':    { en: '// stack.config', fr: '// stack.config' },
