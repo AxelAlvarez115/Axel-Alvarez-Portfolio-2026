@@ -1,6 +1,6 @@
 # axel_alvarez — portfolio
 
-Personal portfolio site for Axel Alvarez, full-stack developer based in Saint-Étienne.
+Personal portfolio site for Axel Alvarez — full-stack developer in training, based in Saint-Étienne, seeking a 2026-2027 apprenticeship (alternance) in the Lyon area.
 
 ## Stack
 

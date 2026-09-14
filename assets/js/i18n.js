@@ -9,13 +9,13 @@
     'nav.contact':   { en: 'contact',   fr: 'contact' },
     'cta_hire':      { en: './hire_me.sh', fr: './embauchez_moi.sh' },
     // hero
-    'hero.eyebrow':      { en: 'portfolio // full-stack engineer',   fr: 'portfolio // développeur full-stack' },
+    'hero.eyebrow':      { en: 'portfolio // full-stack developer in training',   fr: 'portfolio // développeur full-stack en formation' },
     'hero.available':    { en: 'AVAILABLE',         fr: 'DISPONIBLE' },
     'hero.location':     { en: 'SAINT-ÉTIENNE · FR', fr: 'SAINT-ÉTIENNE · FR' },
     'hero.cta_projects': { en: 'view_projects',     fr: 'voir_projets' },
     'hero.cta_contact':  { en: './contact',          fr: './contact' },
     'hero.foot_left':    { en: '↳ scroll to enter', fr: '↳ défiler pour entrer' },
-    'hero.foot_right':   { en: 'based in saint-étienne // open for work', fr: 'basé à st-étienne // dispo pour missions' },
+    'hero.foot_right':   { en: 'based in saint-étienne // seeking apprenticeship in lyon', fr: 'basé à st-étienne // alternance recherchée sur lyon' },
     // section heads
     'sh.about.h':       { en: 'about<span class="accent">_</span>me<span class="underscore">_</span>',      fr: 'à<span class="accent">_</span>propos<span class="underscore">_</span>' },
     'sh.about.meta':    { en: '~/bio.md',       fr: '~/bio.md' },
@@ -31,8 +31,8 @@
       fr: "Développeur Web en formation et futur Concepteur Développeur d'Applications, je me passionne pour la conception d'applications performantes et d'interfaces fluides."
     },
     'about.p1': {
-      en: 'Currently studying web development, I am proficient in the JavaScript ecosystem (Node.js, Express) and database management with PostgreSQL. I have also developed solid knowledge of the PHP ecosystem. Following a highly rewarding initial experience in a web agency, I am now seeking an apprenticeship (2026-2027) to achieve my Application Developer (CDA) certification, with a strong focus on Front-End development.',
-      fr: 'Actuellement étudiant, je maîtrise les technologies de l\'écosystème JavaScript (Node.js, Express) ainsi que la gestion de bases de données avec PostgreSQL. J\'ai également développé de solides connaissances dans l\'écosystème PHP. Fort d\'une première expérience pratique très formatrice en agence, je cherche aujourd\'hui une alternance (2026-2027) pour préparer mon titre de Concepteur Développeur d\'Applications (CDA), avec une forte affinité pour le développement Front-End.'
+      en: 'Currently studying web development, I am proficient in the JavaScript ecosystem (Node.js, Express) and database management with PostgreSQL. I have also developed solid knowledge of the PHP ecosystem. Following a highly rewarding initial experience in a web agency, I am now seeking an apprenticeship (2026-2027) in the Lyon area to achieve my Application Developer (CDA) certification, with a strong focus on Front-End development.',
+      fr: 'Actuellement étudiant, je maîtrise les technologies de l\'écosystème JavaScript (Node.js, Express) ainsi que la gestion de bases de données avec PostgreSQL. J\'ai également développé de solides connaissances dans l\'écosystème PHP. Fort d\'une première expérience pratique très formatrice en agence, je cherche aujourd\'hui une alternance (2026-2027) en région lyonnaise pour préparer mon titre de Concepteur Développeur d\'Applications (CDA), avec une forte affinité pour le développement Front-End.'
     },
     'about.p2': {
       en: "Inquisitive and rigorous, I enjoy designing clean web architectures, from back-end logic down to the final user experience.",
@@ -91,16 +91,16 @@
       fr: 'on<span class="accent">_</span>construit<span class="accent">_</span>quelque<span class="accent">_</span>chose<span class="accent">_</span>de<span class="accent">_</span>fort.'
     },
     'contact.sub': {
-      en: 'Looking for collaborators, contracts, or just someone to argue about monorepos with? My inbox is open and I read everything within 48 hours.',
-      fr: "Vous cherchez des collaborateurs, des contrats, ou juste quelqu'un avec qui débattre des monorepos ? Ma boîte est ouverte et je lis tout sous 48h."
+      en: 'Looking for an apprentice for 2026-2027, a project to build, or just someone to argue about monorepos with? My inbox is open and I read everything within 48 hours.',
+      fr: "Vous cherchez un alternant pour 2026-2027, un projet à construire, ou juste quelqu'un avec qui débattre des monorepos ? Ma boîte est ouverte et je lis tout sous 48h."
     },
     'contact.book': { en: 'book a call',      fr: 'réserver un appel' },
     'contact.cv':   { en: 'download cv.pdf',  fr: 'télécharger cv.pdf' },
     'contact.meta.location_k': { en: '// location',    fr: '// localisation' },
-    'contact.meta.location_v': { en: 'Saint-Étienne, FR <span class="accent">●</span>', fr: 'Saint-Étienne, FR <span class="accent">●</span>' },
+    'contact.meta.location_v': { en: 'Saint-Étienne → Lyon <span class="accent">●</span>', fr: 'Saint-Étienne → Lyon <span class="accent">●</span>' },
     'contact.meta.tz_k':       { en: '// timezone',    fr: '// fuseau' },
     'contact.meta.avail_k':    { en: '// availability', fr: '// disponibilité' },
-    'contact.meta.avail_v':    { en: '<span class="accent">●</span> open · jun 2026', fr: '<span class="accent">●</span> dispo · juin 2026' },
+    'contact.meta.avail_v':    { en: '<span class="accent">●</span> alternance · 2026-2027', fr: '<span class="accent">●</span> alternance · 2026-2027' },
     'contact.meta.resp_k':     { en: '// response_time', fr: '// délai_réponse' },
     'contact.meta.resp_v':     { en: '~12h avg',         fr: '~12h en moyenne' },
     // footer
@@ -114,8 +114,8 @@
       fr: 'envoyer<span class="accent">_</span>un<span class="accent">_</span>message'
     },
     'email.sub': {
-      en: 'Drop your idea, contract, or argument-about-monorepos here. Hits my inbox directly.',
-      fr: 'Déposez votre idée, contrat, ou débat-sur-les-monorepos ici. Ça arrive directement dans ma boîte.'
+      en: 'Drop your apprenticeship offer, your project, or your argument-about-monorepos here. Hits my inbox directly.',
+      fr: 'Déposez votre offre d\'alternance, votre projet, ou votre débat-sur-les-monorepos ici. Ça arrive directement dans ma boîte.'
     },
     'email.name_l':    { en: 'name',     fr: 'nom' },
     'email.email_l':   { en: 'email',    fr: 'email' },
