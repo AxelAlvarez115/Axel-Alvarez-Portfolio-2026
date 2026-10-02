@@ -12,7 +12,9 @@
   const statusEl = document.getElementById('emailFormStatus');
   if (!modal || !form || !panel) return;
 
-  const RECIPIENT = 'axel.alvarez115a@gmail.com';
+  // Adresse assemblée au runtime : jamais écrite en clair dans le HTML ni le JS
+  const RECIPIENT = ['axel.alvarez115a', 'gmail.com'].join('@');
+  document.querySelectorAll('[data-email-label]').forEach(el => { el.textContent = RECIPIENT; });
   let lastFocus = null;
 
   function getStatusText(key) {

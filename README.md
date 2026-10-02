@@ -1,18 +1,17 @@
 # axel_alvarez — portfolio
 
-Personal portfolio site for Axel Alvarez — full-stack developer in training, based in Saint-Étienne, seeking a 2026-2027 apprenticeship (alternance) in the Lyon area.
+Personal portfolio site for Axel Alvarez — full-stack web developer based in Saint-Étienne, looking for a web developer position (CDI/CDD) in the Lyon area.
 
 ## Stack
 
 - **HTML/CSS/JS** — vanilla, no framework, no bundler
 - **SCSS** — compiled via Dart Sass (`npx sass`)
-- **React** — used only for the Tweaks panel (loaded via CDN + Babel standalone)
 - **Fonts** — JetBrains Mono, Chakra Petch, DM Sans (Google Fonts)
 
 ## Structure
 
 ```
-Portfolio CV-style.html   → single-page entry point
+index.html                → single-page entry point
 assets/
   css/
     main.css              → compiled output (do not edit directly)
@@ -76,10 +75,10 @@ npx --yes sass assets/scss/main.scss assets/css/main.css --no-source-map
 npx --yes sass --watch assets/scss/main.scss assets/css/main.css --no-source-map
 ```
 
-Then open `Portfolio CV-style.html` directly in a browser — no dev server required.
+Then open `index.html` directly in a browser — no dev server required.
 
 ## Theming
 
-The accent color and visual effects are controlled via CSS custom properties defined in `_variables.scss` and overridden per-theme in `assets/scss/themes/`. The in-page **Tweaks panel** (bottom-right) lets you change the accent color, toggle scanlines, and switch grain at runtime.
+The accent color and visual effects are controlled via CSS custom properties defined in `_variables.scss` and overridden per-theme in `assets/scss/themes/`.
 
 Default accent: `#ff0000`

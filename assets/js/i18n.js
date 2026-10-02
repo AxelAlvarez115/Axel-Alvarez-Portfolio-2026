@@ -9,13 +9,13 @@
     'nav.contact':   { en: 'contact',   fr: 'contact' },
     'cta_hire':      { en: './hire_me.sh', fr: './embauchez_moi.sh' },
     // hero
-    'hero.eyebrow':      { en: 'portfolio // full-stack developer in training',   fr: 'portfolio // développeur full-stack en formation' },
+    'hero.eyebrow':      { en: 'portfolio // full-stack web developer',   fr: 'portfolio // développeur web full-stack' },
     'hero.available':    { en: 'AVAILABLE',         fr: 'DISPONIBLE' },
     'hero.location':     { en: 'SAINT-ÉTIENNE · FR', fr: 'SAINT-ÉTIENNE · FR' },
     'hero.cta_projects': { en: 'view_projects',     fr: 'voir_projets' },
     'hero.cta_contact':  { en: './contact',          fr: './contact' },
     'hero.foot_left':    { en: '↳ scroll to enter', fr: '↳ défiler pour entrer' },
-    'hero.foot_right':   { en: 'based in saint-étienne // seeking apprenticeship in lyon', fr: 'basé à st-étienne // alternance recherchée sur lyon' },
+    'hero.foot_right':   { en: 'based in saint-étienne // looking for a role in lyon', fr: 'basé à st-étienne // en recherche de poste sur lyon' },
     // section heads
     'sh.about.h':       { en: 'about<span class="accent">_</span>me<span class="underscore">_</span>',      fr: 'à<span class="accent">_</span>propos<span class="underscore">_</span>' },
     'sh.about.meta':    { en: '~/bio.md',       fr: '~/bio.md' },
@@ -27,12 +27,12 @@
     'sh.contact.meta':  { en: '~/inbox',       fr: '~/boite_de_reception' },
     // about
     'about.lede': {
-      en: "Web Development Student & Aspiring Application Developer, passionate about building smooth and high-performing user interfaces.",
-      fr: "Développeur Web en formation et futur Concepteur Développeur d'Applications, je me passionne pour la conception d'applications performantes et d'interfaces fluides."
+      en: "Full-stack web developer with a front-end focus, I enjoy building smooth interfaces and efficient applications.",
+      fr: "Développeur web full-stack à dominante front-end, j'aime concevoir des interfaces fluides et des applications performantes."
     },
     'about.p1': {
-      en: 'Currently studying web development, I am proficient in the JavaScript ecosystem (Node.js, Express) and database management with PostgreSQL. I have also developed solid knowledge of the PHP ecosystem. Following a highly rewarding initial experience in a web agency, I am now seeking an apprenticeship (2026-2027) in the Lyon area to achieve my Application Developer (CDA) certification, with a strong focus on Front-End development.',
-      fr: 'Actuellement étudiant, je maîtrise les technologies de l\'écosystème JavaScript (Node.js, Express) ainsi que la gestion de bases de données avec PostgreSQL. J\'ai également développé de solides connaissances dans l\'écosystème PHP. Fort d\'une première expérience pratique très formatrice en agence, je cherche aujourd\'hui une alternance (2026-2027) en région lyonnaise pour préparer mon titre de Concepteur Développeur d\'Applications (CDA), avec une forte affinité pour le développement Front-End.'
+      en: 'I hold the French professional certification Développeur Web et Web Mobile (RNCP level 5), obtained in 2026 at Garage4O4. I completed a front-end developer internship at AXOME, an e-commerce web agency, where I integrated and customised WordPress and Shopify themes and built custom front-end components in HTML, CSS and JavaScript. I use React on the front end, and PHP/Symfony, Node.js (Express), SQL and PostgreSQL on the back end. I am looking for a web developer position (permanent or fixed-term) in the Lyon area, available immediately.',
+      fr: "Titulaire du titre professionnel Développeur Web et Web Mobile (RNCP niveau 5), obtenu en 2026 à l'école Garage4O4, j'ai effectué mon stage de développeur front-end chez AXOME, agence web e-commerce. J'y ai intégré et personnalisé des thèmes WordPress et Shopify, et développé des composants front-end sur mesure en HTML, CSS et JavaScript. J'utilise React côté front, PHP/Symfony, Node.js (Express), SQL et PostgreSQL côté back. Je recherche un poste de développeur web en CDI ou CDD, sur Lyon et sa périphérie, disponible immédiatement."
     },
     'about.p2': {
       en: "Inquisitive and rigorous, I enjoy designing clean web architectures, from back-end logic down to the final user experience.",
@@ -49,7 +49,6 @@
     'stack.infra':    { en: 'tools',             fr: 'outils' },
     'stack.learning': { en: 'currently_learning', fr: 'apprentissage_en_cours' },
     // projects
-    'proj.p1.badge': { en: 'live',      fr: 'en ligne' },
     'proj.p1.m2':    { en: 'team',      fr: 'équipe' },
     'proj.p1.m3':    { en: 'web app',   fr: 'app web' },
     'proj.p1.desc': {
@@ -80,7 +79,10 @@
     'proj.link.writeup':    { en: 'writeup',     fr: 'article' },
     // education
     'edu.e1.date': { en: '2026', fr: '2026' },
-    'edu.e1.h':    { en: 'Développeur Web et Web Mobile', fr: 'Développeur Web et Web Mobile' },
+    'edu.e1.h':    { en: 'Titre professionnel DWWM – Développeur Web et Web Mobile', fr: 'Titre professionnel DWWM – Développeur Web et Web Mobile' },
+    'edu.stage.date':   { en: '2026', fr: '2026' },
+    'edu.stage.h':      { en: 'Front-end developer internship', fr: 'Stage développeur front-end' },
+    'edu.stage.school': { en: 'AXOME – e-commerce web agency', fr: 'AXOME – agence web e-commerce' },
     'edu.e2.date': { en: '2020', fr: '2020' },
     'edu.e2.h':    { en: 'BTS CIM – Conception et Industrialisation en Microtechniques', fr: 'BTS CIM – Conception et Industrialisation en Microtechniques' },
     'edu.e3.date': { en: '2018', fr: '2018' },
@@ -91,8 +93,8 @@
       fr: 'on<span class="accent">_</span>construit<span class="accent">_</span>quelque<span class="accent">_</span>chose<span class="accent">_</span>de<span class="accent">_</span>fort.'
     },
     'contact.sub': {
-      en: 'Looking for an apprentice for 2026-2027, a project to build, or just someone to argue about monorepos with? My inbox is open and I read everything within 48 hours.',
-      fr: "Vous cherchez un alternant pour 2026-2027, un projet à construire, ou juste quelqu'un avec qui débattre des monorepos ? Ma boîte est ouverte et je lis tout sous 48h."
+      en: 'Hiring a web developer, have a project to build, or just want to argue about monorepos? My inbox is open and I read everything within 48 hours.',
+      fr: "Vous recrutez un développeur web en CDI ou CDD, vous avez un projet à construire, ou vous voulez juste débattre des monorepos ? Ma boîte est ouverte et je lis tout sous 48h."
     },
     'contact.book': { en: 'book a call',      fr: 'réserver un appel' },
     'contact.cv':   { en: 'download cv.pdf',  fr: 'télécharger cv.pdf' },
@@ -100,9 +102,9 @@
     'contact.meta.location_v': { en: 'Saint-Étienne → Lyon <span class="accent">●</span>', fr: 'Saint-Étienne → Lyon <span class="accent">●</span>' },
     'contact.meta.tz_k':       { en: '// timezone',    fr: '// fuseau' },
     'contact.meta.avail_k':    { en: '// availability', fr: '// disponibilité' },
-    'contact.meta.avail_v':    { en: '<span class="accent">●</span> alternance · 2026-2027', fr: '<span class="accent">●</span> alternance · 2026-2027' },
+    'contact.meta.avail_v':    { en: '<span class="accent">●</span> permanent / fixed-term · now', fr: '<span class="accent">●</span> CDI · CDD · immédiate' },
     'contact.meta.resp_k':     { en: '// response_time', fr: '// délai_réponse' },
-    'contact.meta.resp_v':     { en: '~12h avg',         fr: '~12h en moyenne' },
+    'contact.meta.resp_v':     { en: 'within 48h',       fr: 'sous 48h' },
     // footer
     'footer.left': { en: '© 2026 axel alvarez · built with caffeine &amp; vim', fr: '© 2026 axel alvarez · construit avec caféine &amp; vim' },
     'footer.fps':  { en: 'fps: 60',         fr: 'fps : 60' },
@@ -114,8 +116,8 @@
       fr: 'envoyer<span class="accent">_</span>un<span class="accent">_</span>message'
     },
     'email.sub': {
-      en: 'Drop your apprenticeship offer, your project, or your argument-about-monorepos here. Hits my inbox directly.',
-      fr: 'Déposez votre offre d\'alternance, votre projet, ou votre débat-sur-les-monorepos ici. Ça arrive directement dans ma boîte.'
+      en: 'Drop your job offer, your project, or your argument-about-monorepos here. Hits my inbox directly.',
+      fr: 'Déposez votre offre d\'emploi, votre projet, ou votre débat-sur-les-monorepos ici. Ça arrive directement dans ma boîte.'
     },
     'email.name_l':    { en: 'name',     fr: 'nom' },
     'email.email_l':   { en: 'email',    fr: 'email' },

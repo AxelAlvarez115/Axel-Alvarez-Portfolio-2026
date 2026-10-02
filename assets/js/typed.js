@@ -2,15 +2,15 @@
 window.__TYPED_PHRASES = {
   en: [
     "full-stack developer building fast, weird software.",
-    "shipping web apps, devtools, and side projects.",
+    "building web apps and WordPress & Shopify themes.",
     "obsessed with low-latency UIs & clean APIs.",
-    "seeking a 2026-2027 apprenticeship — lyon area."
+    "looking for a web developer role — lyon area."
   ],
   fr: [
     "développeur full-stack qui construit des logiciels rapides et un peu bizarres.",
-    "livre des apps web, des outils internes et des projets perso.",
+    "développe des apps web et intègre des thèmes WordPress et Shopify.",
     "obsédé par les UI à faible latence et les APIs propres.",
-    "en recherche d'alternance 2026-2027 — région lyonnaise."
+    "en recherche de CDI ou CDD — lyon et périphérie."
   ]
 };
 

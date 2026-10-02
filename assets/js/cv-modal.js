@@ -7,7 +7,7 @@
   const backdrop  = document.getElementById('cvModalBackdrop');
   if (!modal || !frame || !openBtn) return;
 
-  const PDF = 'assets/documents/CV – Axel Alvarez Dev.pdf';
+  const PDF = 'assets/documents/CV_Axel_Alvarez_Web.pdf';
 
   function open() {
     if (!frame.src || frame.src === window.location.href) frame.src = PDF;
