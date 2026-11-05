@@ -30,7 +30,7 @@
     mix-blend-mode: screen;
   }
 
-  &:hover {
+  &.is-glitching {
     animation: glitch-jitter 0.6s steps(2) 1;
 
     &::before { animation: glitch-a 0.6s steps(2) 1; opacity: 1; }
@@ -96,7 +96,7 @@
   background: rgba(10, 10, 10, 0.96);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
-  z-index: 110;
+  z-index: 90;
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease;

@@ -17,7 +17,10 @@
   --bg-3:         #1a1a1a;
   --fg:           #f8f8f6;
   --fg-dim:       rgba(248, 248, 246, 0.62);
-  --fg-mute:      rgba(248, 248, 246, 0.38);
+  // 0.38 → 0.52 : contraste ≥ 4.5:1 (WCAG AA) sur --bg et --bg-2
+  --fg-mute:      rgba(248, 248, 246, 0.52);
+  // Rouge un poil plus sombre pour les aplats sous texte blanc (#fff/#ff0000 = 4.0:1 → 5.0:1)
+  --accent-fill:  #e00000;
   --line:         rgba(255, 255, 255, 0.07);
   --line-bright:  rgba(255, 255, 255, 0.12);
   --red-tint:     rgba(255, 0, 0, 0.22);
@@ -75,6 +78,7 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
 
   &.is-shrunk {
     .brand        { font-size: 13px !important; gap: 12px !important; }
+    .brand-dot    { width: 22px !important; height: 22px !important; outline-offset: 2px !important; }
     .nav a        { padding: 8px 12px !important; font-size: 11px !important; }
     .nav-cta      { padding: 9px 16px !important; font-size: 11px !important; }
     .lang-toggle  { padding: 7px 12px !important; font-size: 10px !important; }
@@ -113,27 +117,50 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
 }
 
 .brand-dot {
-  width: 22px !important; height: 22px !important;
-  background: var(--accent) !important;
-  border-radius: 0 !important;
+  width: 26px !important;
+  height: 26px !important;
+  background: rgba(10, 10, 10, 0.55) !important; // fond sombre derrière l'image
+  border-radius: 3px !important;
   clip-path: none !important;
-  box-shadow: 3px 3px 0 0 rgba(255, 0, 0, 0.25) !important;
+  overflow: hidden !important;
+  animation: none !important; // désactive le pulse hérité
+  // Anneau détaché
+  outline: 1px solid color-mix(in srgb, var(--accent) 50%, transparent) !important;
+  outline-offset: 3px !important;
+  // Glow multicouche sur le conteneur
+  box-shadow:
+    0 0 8px  color-mix(in srgb, var(--accent) 55%, transparent),
+    0 0 20px color-mix(in srgb, var(--accent) 28%, transparent) !important;
   display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-
-  &::after {
-    content: "AA";
-    color: #fff;
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: 9px;
-    letter-spacing: 0.5px;
-  }
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  transition: box-shadow 0.25s ease, outline-color 0.25s ease !important;
 }
 
-.brand-slash { color: var(--accent) !important; font-weight: 500 !important; opacity: 0.7; }
+// L'image elle-même
+.brand-dot img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+  // drop-shadow suit les contours réels du logo (transparence alphée)
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--accent) 50%, transparent)) !important;
+  transition: filter 0.25s ease !important;
+}
+
+// Hover : glow amplifié
+.brand:hover .brand-dot {
+  outline-color: color-mix(in srgb, var(--accent) 85%, transparent) !important;
+  box-shadow:
+    0 0 14px color-mix(in srgb, var(--accent) 80%, transparent),
+    0 0 32px color-mix(in srgb, var(--accent) 45%, transparent) !important;
+}
+.brand:hover .brand-dot img {
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--accent) 85%, transparent)) !important;
+}
+
+.brand-slash { color: var(--accent) !important; font-weight: 500 !important; }
 .brand-role  { color: var(--fg-mute) !important; font-family: var(--mono) !important; font-weight: 400 !important; letter-spacing: 1.5px; }
 .brand-name  { color: var(--fg) !important; }
 
@@ -148,7 +175,7 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
   padding: 8px 12px !important;
   position: relative;
 
-  .num { display: inline !important; color: rgba(255, 0, 0, 0.55) !important; font-size: 9px !important; letter-spacing: 1px !important; }
+  .num { display: inline !important; color: var(--accent) !important; font-size: 9px !important; letter-spacing: 1px !important; }
 
   &::after {
     content: "";
@@ -235,7 +262,7 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
   }
 
   .lang-current { color: var(--fg); }
-  .lang-sep     { color: rgba(255, 0, 0, 0.55); }
+  .lang-sep     { color: var(--accent); }
   .lang-other   { color: var(--fg-mute); }
 
   &:hover {
@@ -360,7 +387,11 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
 
 .hero-content { padding-top: 0 !important; padding-bottom: 0 !important; }
 
+// Contraste : annule les opacités 0.85 / 0.7 héritées d’alien-skin
+.section-head .meta { opacity: 1 !important; }
+
 .hero-statusbar {
+  opacity: 1 !important;
   font-family: var(--mono) !important;
   font-size: 10px !important;
   letter-spacing: 2.5px !important;
@@ -415,6 +446,9 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
   letter-spacing: -1.5px !important;
   line-height: 0.94 !important;
   font-size: clamp(28px, 10.5vw, 108px) !important;
+  // Le nom tient toujours dans la largeur réelle du hero (≈ 8,6 em de large) :
+  // entre ~480 et ~1250 px, 10.5vw dépassait la zone de contenu.
+  font-size: clamp(28px, min(10.5vw, 11cqi), 108px) !important;
   color: var(--fg) !important;
   text-shadow: none !important;
   white-space: nowrap;
@@ -431,7 +465,7 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
   .underscore {
     color: transparent !important;
     display: inline-block !important;
-    width: clamp(5px, 0.6vw, 10px) !important;
+    width: 6px !important;
     height: 0.8em !important;
     background: var(--accent) !important;
     vertical-align: -0.04em !important;
@@ -447,6 +481,22 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
 
 .hero-name--nocaps {
   text-transform: none !important;
+}
+
+.hero-name.is-switching {
+  animation: glitch-jitter 0.55s steps(2) 1 !important;
+
+  &::before {
+    display: block !important;
+    animation: glitch-a 0.55s steps(2) 1 !important;
+    opacity: 1 !important;
+  }
+  &::after {
+    display: block !important;
+    animation: glitch-b 0.55s steps(2) 1 !important;
+    opacity: 1 !important;
+    color: var(--accent) !important;
+  }
 }
 
 @keyframes blink {
@@ -527,7 +577,7 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
   &:hover .arrow { color: #fff !important; }
 
   &.primary {
-    background: var(--accent) !important;
+    background: var(--accent-fill) !important;
     color: #fff !important;
     border: 0 !important;
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.55), 0 0 18px rgba(255, 0, 0, 0.4) !important;
@@ -611,6 +661,25 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
     position: relative;
     word-break: break-word;
     overflow-wrap: anywhere;
+
+    .accent {
+      color: var(--accent) !important;
+      text-shadow: 0 0 18px rgba(255, 0, 0, 0.55), 0 0 40px rgba(255, 0, 0, 0.3) !important;
+    }
+
+    .underscore {
+      color: transparent !important;
+      display: inline-block !important;
+      width: 6px !important;
+      height: 0.8em !important;
+      background: var(--accent) !important;
+      vertical-align: -0.04em !important;
+      margin-left: 8px !important;
+      box-shadow: 0 0 16px var(--accent), 0 0 4px var(--accent) !important;
+      overflow: hidden !important;
+      text-indent: -9999px !important;
+      animation: blink 1.05s steps(1) infinite !important;
+    }
   }
 
   .rule { background: var(--line) !important; }
@@ -735,7 +804,7 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
   letter-spacing: 2px !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
-  color: rgba(255, 0, 0, 0.85) !important;
+  color: var(--accent) !important;
   margin-bottom: 10px !important;
   display: flex;
   align-items: center;
@@ -858,7 +927,7 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
   }
 
   .badge {
-    background: var(--accent) !important;
+    background: var(--accent-fill) !important;
     border: 0 !important;
     color: #fff !important;
     font-family: var(--mono) !important;
@@ -938,6 +1007,27 @@ section { border-bottom: 1px solid var(--line) !important; background: var(--bg)
     line-height: 1.7 !important;
     color: var(--fg-dim) !important;
   }
+
+  // Ligne « Mon rôle » des projets en équipe
+  p.project-role {
+    font-family: var(--mono) !important;
+    font-weight: 400 !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.5px !important;
+    color: var(--fg) !important;
+    margin: -6px 0 18px !important;
+
+    .k {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-right: 6px;
+    }
+  }
+
+  // Bouton démo : masqué tant qu’aucune URL n’est renseignée dans href
+  .link-demo:not([href^="http"]) { display: none !important; }
 
   .link {
     font-family: var(--mono) !important;
@@ -1195,7 +1285,7 @@ footer {
   &::before { color: var(--accent) !important; mix-blend-mode: screen; }
   &::after  { color: #00e7ff !important; mix-blend-mode: screen; }
 
-  &:hover {
+  &.is-glitching {
     animation: glitch-jitter 0.55s steps(2) 1 !important;
 
     &::before { animation: glitch-a 0.55s steps(2) 1; opacity: 1; }
@@ -1287,7 +1377,6 @@ footer {
     text-align: center !important;
     gap: 14px !important;
     .socials { justify-content: center !important; }
-    .center  { justify-content: center; }
   }
 
   .contact-block {

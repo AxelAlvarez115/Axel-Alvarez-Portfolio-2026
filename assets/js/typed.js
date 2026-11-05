@@ -1,16 +1,14 @@
 /* ---------- phrases tapées — dictionnaire bilingue ---------- */
 window.__TYPED_PHRASES = {
   en: [
-    "full-stack developer building fast, weird software.",
-    "building web apps and WordPress & Shopify themes.",
+    "I build web apps and integrate WordPress and Shopify themes.",
     "obsessed with low-latency UIs & clean APIs.",
-    "looking for a web developer role — lyon area."
+    "looking for a work-study (Bachelor CDA, ISCOD), permanent or fixed-term role — lyon area."
   ],
   fr: [
-    "développeur full-stack qui construit des logiciels rapides et un peu bizarres.",
-    "développe des apps web et intègre des thèmes WordPress et Shopify.",
+    "je développe des apps web et j'intègre des thèmes WordPress et Shopify.",
     "obsédé par les UI à faible latence et les APIs propres.",
-    "en recherche de CDI ou CDD — lyon et périphérie."
+    "en recherche d'alternance (Bachelor CDA, ISCOD), CDI ou CDD — lyon et périphérie."
   ]
 };
 

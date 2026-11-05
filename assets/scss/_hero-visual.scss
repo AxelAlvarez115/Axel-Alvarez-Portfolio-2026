@@ -1,0 +1,78 @@
+// ==========================================================================
+// HERO VISUAL — hélicoptère + bouton toggle (repris de main.css, resynchronisé)
+// ==========================================================================
+/* ── Hero visual — rendu hélicoptère ── */
+.hero-visual {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 56%;
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.hero-visual.heli-on {
+  opacity: 1;
+}
+
+.heli-toggle {
+  position: absolute;
+  bottom: 52px;
+  right: 20px;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--fg-mute);
+  opacity: 1; // était 0.6 : texte sous le seuil de contraste
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.heli-toggle:hover {
+  opacity: 1;
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.heli-toggle.heli-on {
+  opacity: 1;
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.hero-visual img {
+  position: absolute;
+  right: -3%;
+  top: 58%;
+  transform: translateY(-54%);
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+  filter:
+    drop-shadow(0 0 12px color-mix(in srgb, var(--accent) 65%, transparent))
+    drop-shadow(0 0 28px color-mix(in srgb, var(--accent) 25%, transparent));
+  user-select: none;
+}
+
+@media (max-width: 960px) {
+  .hero-visual {
+    width: 70%;
+    opacity: 0.45;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-visual {
+    display: none;
+  }
+  .heli-toggle {
+    display: none;
+  }
+}

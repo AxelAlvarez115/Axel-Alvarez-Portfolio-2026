@@ -4,6 +4,8 @@
 
 .projects-wrap {
   position: relative;
+  // Référence des unités cqi (centrage des flèches sur l’image)
+  container-type: inline-size;
   // Reste dans `.section-inner` — la card active s'aligne avec le titre
   // de section, donc visuellement centrée par rapport au contenu de la section
 }
@@ -67,23 +69,19 @@
   background: linear-gradient(to left, var(--bg) 8%, transparent 100%);
 }
 
-// ---------- Bandeau de navigation (flèches + dots) ----------
-.projects-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  margin-top: 32px;
-}
-
+// ---------- Flèches de navigation (positionnées sur le carousel) ----------
 .proj-nav {
-  width: 44px;
-  height: 44px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 52px;
+  height: 52px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-family: var(--mono);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--accent);
   background: rgba(0, 0, 0, 0.85);
@@ -112,41 +110,9 @@
     cursor: default;
     pointer-events: none;
   }
-}
 
-// ---------- Dots de pagination ----------
-.proj-dots {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 8px;
-}
-
-.proj-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1.5px solid color-mix(in srgb, var(--accent) 55%, transparent);
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.25s ease;
-
-  &:hover {
-    background: color-mix(in srgb, var(--accent) 35%, transparent);
-    border-color: var(--accent);
-    box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 50%, transparent);
-  }
-
-  &.is-active {
-    width: 28px;
-    border-radius: 6px;
-    background: var(--accent);
-    border-color: var(--accent);
-    box-shadow:
-      0 0 10px var(--accent),
-      0 0 2px rgba(0, 0, 0, 0.6);
-  }
+  &.proj-prev { left: clamp(8px, 2vw, 32px); }
+  &.proj-next { right: clamp(8px, 2vw, 32px); }
 }
 
 // ---------- Toolbar (toggle voir plus / voir moins) ----------
@@ -194,7 +160,7 @@
     &::before, &::after { display: none; }
   }
 
-  .projects-nav { display: none; }
+  .proj-nav { display: none; }
 
   .projects {
     flex-direction: column;
@@ -298,6 +264,39 @@
       text-shadow: 0 0 6px var(--accent-soft);
     }
   }
+
+  .project-screenshot {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    z-index: 1;
+    filter: brightness(0.45);
+    transform: scale(1);
+    transition: filter 0.4s ease, transform 0.5s ease;
+  }
+
+  &:hover .project-screenshot {
+    filter: brightness(0.75);
+    transform: scale(1.04);
+  }
+}
+
+// En carrousel, l’image laisse la place au titre, à la stack et aux boutons
+// sans défiler (ex. 1440 × 900 : ~230 px au lieu de 604 px). Plancher 200 px.
+#projects:not(.is-expanded) .project-media {
+  max-height: max(200px, calc(100svh - 670px));
+}
+
+// Flèches centrées verticalement sur l’image de la card active :
+// padding haut du track (24px) + moitié de la hauteur réelle de l’image
+// (largeur de card × 10/16, plafonnée par le max-height ci-dessus).
+#projects:not(.is-expanded) .proj-nav {
+  --card-w: min(1080px, 0.86 * (100cqi - 2 * clamp(16px, 5vw, 80px)));
+  top: calc(24px + min(var(--card-w) * 0.625, max(200px, 100svh - 670px)) / 2);
 }
 
 // ==========================================================================

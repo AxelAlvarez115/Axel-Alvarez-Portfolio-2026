@@ -9,7 +9,7 @@
     'nav.contact':   { en: 'contact',   fr: 'contact' },
     'cta_hire':      { en: './hire_me.sh', fr: './embauchez_moi.sh' },
     // hero
-    'hero.eyebrow':      { en: 'portfolio // full-stack web developer',   fr: 'portfolio // développeur web full-stack' },
+    'hero.eyebrow':      { en: 'portfolio // junior web developer',   fr: 'portfolio // développeur web junior' },
     'hero.available':    { en: 'AVAILABLE',         fr: 'DISPONIBLE' },
     'hero.location':     { en: 'SAINT-ÉTIENNE · FR', fr: 'SAINT-ÉTIENNE · FR' },
     'hero.cta_projects': { en: 'view_projects',     fr: 'voir_projets' },
@@ -31,8 +31,8 @@
       fr: "Développeur web full-stack à dominante front-end, j'aime concevoir des interfaces fluides et des applications performantes."
     },
     'about.p1': {
-      en: 'I hold the French professional certification Développeur Web et Web Mobile (RNCP level 5), obtained in 2026 at Garage4O4. I completed a front-end developer internship at AXOME, an e-commerce web agency, where I integrated and customised WordPress and Shopify themes and built custom front-end components in HTML, CSS and JavaScript. I use React on the front end, and PHP/Symfony, Node.js (Express), SQL and PostgreSQL on the back end. I am looking for a web developer position (permanent or fixed-term) in the Lyon area, available immediately.',
-      fr: "Titulaire du titre professionnel Développeur Web et Web Mobile (RNCP niveau 5), obtenu en 2026 à l'école Garage4O4, j'ai effectué mon stage de développeur front-end chez AXOME, agence web e-commerce. J'y ai intégré et personnalisé des thèmes WordPress et Shopify, et développé des composants front-end sur mesure en HTML, CSS et JavaScript. J'utilise React côté front, PHP/Symfony, Node.js (Express), SQL et PostgreSQL côté back. Je recherche un poste de développeur web en CDI ou CDD, sur Lyon et sa périphérie, disponible immédiatement."
+      en: 'I hold the French professional certification Développeur Web et Web Mobile (RNCP level 5), obtained in 2026 at Garage4O4. I completed a front-end developer internship at AXOME, an e-commerce web agency, where I integrated and customised WordPress and Shopify themes and built custom front-end components in HTML, CSS and JavaScript. I use React on the front end, and PHP/Symfony, Node.js (Express), SQL and PostgreSQL on the back end. Admitted to the Bachelor Concepteur Développeur d\'Applications &amp; IA at ISCOD, I am looking for a work-study contract (Bachelor CDA, ISCOD), a permanent or a fixed-term web developer position in the Lyon area, available immediately.',
+      fr: "Titulaire du titre professionnel Développeur Web et Web Mobile (RNCP niveau 5), obtenu en 2026 à l'école Garage4O4, j'ai effectué mon stage de développeur front-end chez AXOME, agence web e-commerce. J'y ai intégré et personnalisé des thèmes WordPress et Shopify, et développé des composants front-end sur mesure en HTML, CSS et JavaScript. J'utilise React côté front, PHP/Symfony, Node.js (Express), SQL et PostgreSQL côté back. Admis au Bachelor Concepteur Développeur d'Applications &amp; IA à l'ISCOD, je recherche une alternance (Bachelor CDA, ISCOD), un CDI ou un CDD de développeur web, sur Lyon et sa périphérie, disponible immédiatement."
     },
     'about.p2': {
       en: "Inquisitive and rigorous, I enjoy designing clean web architectures, from back-end logic down to the final user experience.",
@@ -64,15 +64,22 @@
     'proj.p3.m2':    { en: 'solo',        fr: 'solo' },
     'proj.p3.m3':    { en: 'side project', fr: 'side project' },
     'proj.p3.desc': {
-      en: 'Turn-based combat game in pure PHP with OOP. Heroes persisted via PDO, custom autoloading, object hydration from SQL results. Sprint 2 introduces inheritance and polymorphism: hero classes (warrior/mage/archer) with special attacks and damage type interactions.',
-      fr: "Jeu de combat tour par tour en PHP pur avec POO. Héros persistés en base via PDO, autoloading custom, hydratation des objets depuis les résultats SQL. Sprint 2 introduit héritage et polymorphisme : classes de héros (guerrier/mage/archer) avec attaques spéciales et interactions de dégâts entre types."
+      en: 'Turn-based combat game in object-oriented PHP, set in the Warhammer 40K: Darktide universe. Heroes persisted via PDO, with object hydration and autoloading. 5 hero classes with special attacks, an energy gauge, status effects (freeze, stun, poison) and class weaknesses against monsters.',
+      fr: "Jeu de combat au tour par tour en PHP orienté objet, dans l'univers de Warhammer 40K: Darktide. Héros persistés en base via PDO, avec hydratation et autoloading. 5 classes de héros avec attaques spéciales, jauge d'énergie, effets de statut (gel, étourdissement, poison) et faiblesses de classe face aux monstres."
     },
     'proj.p4.m2':    { en: 'team of 3',  fr: 'équipe de 3' },
     'proj.p4.m3':    { en: 'web app',    fr: 'app web' },
     'proj.p4.desc': {
-      en: 'Minimalist Instagram clone in vanilla PHP. Photo uploads, likes and comments via AJAX, profile system with avatar and bio. No framework — custom MVC architecture with PDO and PHP sessions.',
-      fr: "Clone Instagram minimaliste en PHP vanilla. Upload de photos, likes et commentaires en AJAX, système de profils avec avatar et bio. Pas de framework — architecture MVC maison avec PDO et sessions PHP."
+      en: 'Minimalist Instagram clone in vanilla PHP. Server-validated photo uploads, likes and comments via AJAX, profiles with avatar and bio, search for members and photos. No framework: PDO, PHP sessions and code organised by role (pages, form handlers, data access).',
+      fr: "Clone Instagram minimaliste en PHP vanilla. Upload de photos contrôlé côté serveur, likes et commentaires en AJAX, profils avec avatar et bio, recherche de membres et de photos. Sans framework : PDO, sessions PHP et code organisé par rôle (pages, traitements, accès aux données)."
     },
+    // Ligne « Mon rôle » (projets en équipe)
+    'proj.role_k':  { en: 'my role:', fr: 'mon rôle :' },
+    'proj.p1.role': { en: 'started as a team project in 2023, I finished it on my own for my DWWM professional certification in 2026.', fr: "commencé en équipe en 2023, je l'ai terminé seul pour mon titre professionnel DWWM en 2026." },
+    'proj.p2.role': { en: 'I reworked the whole project.', fr: "j'ai retravaillé le projet dans son intégralité." },
+    'proj.p4.role': { en: 'I reworked the whole project.', fr: "j'ai retravaillé le projet dans son intégralité." },
+    // Bouton démo : affiché seulement si le href du lien est renseigné
+    'proj.link.demo':       { en: 'demo',        fr: 'démo' },
     'proj.link.live_demo':  { en: 'live demo',   fr: 'démo live' },
     'proj.link.case_study': { en: 'case study',  fr: 'étude de cas' },
     'proj.link.tune_in':    { en: 'tune in',     fr: 'écouter' },
@@ -93,8 +100,13 @@
       fr: 'on<span class="accent">_</span>construit<span class="accent">_</span>quelque<span class="accent">_</span>chose<span class="accent">_</span>de<span class="accent">_</span>fort.'
     },
     'contact.sub': {
-      en: 'Hiring a web developer, have a project to build, or just want to argue about monorepos? My inbox is open and I read everything within 48 hours.',
-      fr: "Vous recrutez un développeur web en CDI ou CDD, vous avez un projet à construire, ou vous voulez juste débattre des monorepos ? Ma boîte est ouverte et je lis tout sous 48h."
+      en: 'Looking for a junior web developer for a work-study contract (Bachelor CDA, ISCOD), a permanent or a fixed-term role in the Lyon area? Email me: I reply within 48 hours.',
+      fr: "Vous recherchez un développeur web junior en alternance (Bachelor CDA, ISCOD), en CDI ou en CDD sur Lyon et sa périphérie ? Écrivez-moi par e-mail : je réponds sous 48 h."
+    },
+    'contact.form':      { en: 'contact form', fr: 'formulaire de contact' },
+    'contact.form_note': {
+      en: '// the contact form opens your own email app with the message pre-filled.',
+      fr: '// le formulaire ouvre votre logiciel de messagerie avec le message prérempli.'
     },
     'contact.book': { en: 'book a call',      fr: 'réserver un appel' },
     'contact.cv':   { en: 'download cv.pdf',  fr: 'télécharger cv.pdf' },
@@ -102,13 +114,12 @@
     'contact.meta.location_v': { en: 'Saint-Étienne → Lyon <span class="accent">●</span>', fr: 'Saint-Étienne → Lyon <span class="accent">●</span>' },
     'contact.meta.tz_k':       { en: '// timezone',    fr: '// fuseau' },
     'contact.meta.avail_k':    { en: '// availability', fr: '// disponibilité' },
-    'contact.meta.avail_v':    { en: '<span class="accent">●</span> permanent / fixed-term · now', fr: '<span class="accent">●</span> CDI · CDD · immédiate' },
+    'contact.meta.avail_v':    { en: '<span class="accent">●</span> work-study · permanent · fixed-term · now', fr: '<span class="accent">●</span> alternance · CDI · CDD · immédiate' },
     'contact.meta.resp_k':     { en: '// response_time', fr: '// délai_réponse' },
     'contact.meta.resp_v':     { en: 'within 48h',       fr: 'sous 48h' },
     // footer
-    'footer.left': { en: '© 2026 axel alvarez · built with caffeine &amp; vim', fr: '© 2026 axel alvarez · construit avec caféine &amp; vim' },
-    'footer.fps':  { en: 'fps: 60',         fr: 'fps : 60' },
-    'footer.mem':  { en: 'memory: nominal', fr: 'mémoire : nominale' },
+    // Injecté via textContent (pas de data-i18n-html) : écrire « & » brut, pas l'entité HTML
+    'footer.left': { en: '© 2026 axel alvarez · built with caffeine & vim', fr: '© 2026 axel alvarez · construit avec caféine & vim' },
     // email modal
     'email.eyebrow':   { en: 'compose_message', fr: 'composer_message' },
     'email.title': {
@@ -116,8 +127,8 @@
       fr: 'envoyer<span class="accent">_</span>un<span class="accent">_</span>message'
     },
     'email.sub': {
-      en: 'Drop your job offer, your project, or your argument-about-monorepos here. Hits my inbox directly.',
-      fr: 'Déposez votre offre d\'emploi, votre projet, ou votre débat-sur-les-monorepos ici. Ça arrive directement dans ma boîte.'
+      en: 'Your job offer, a question or an interview request: this form opens your own email app with the message pre-filled, you just have to send it.',
+      fr: 'Votre offre, une question ou une demande d\'entretien : ce formulaire ouvre votre logiciel de messagerie avec le message prérempli, il ne vous reste qu\'à l\'envoyer.'
     },
     'email.name_l':    { en: 'name',     fr: 'nom' },
     'email.email_l':   { en: 'email',    fr: 'email' },

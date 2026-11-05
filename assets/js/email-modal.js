@@ -15,6 +15,8 @@
   // Adresse assemblée au runtime : jamais écrite en clair dans le HTML ni le JS
   const RECIPIENT = ['axel.alvarez115a', 'gmail.com'].join('@');
   document.querySelectorAll('[data-email-label]').forEach(el => { el.textContent = RECIPIENT; });
+  // Liens e-mail directs : vrai mailto: posé au runtime (le formulaire reste l'option secondaire)
+  document.querySelectorAll('[data-email-link]').forEach(el => { el.setAttribute('href', 'mailto:' + RECIPIENT); });
   let lastFocus = null;
 
   function getStatusText(key) {

@@ -33,6 +33,10 @@
 // 8. Email modal (formulaire de contact)
 @import 'email-modal';
 
+// 8b. Lecteur ambient + aperçu CV
+@import 'music';
+@import 'cv-modal';
+
 // 9. Thèmes — cascade : alien → modern-classic → cv-skin (cv-skin gagne)
 @import 'themes/alien-skin';
 @import 'themes/modern-classic';

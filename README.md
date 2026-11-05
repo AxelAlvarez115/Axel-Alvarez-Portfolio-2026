@@ -1,6 +1,6 @@
 # axel_alvarez — portfolio
 
-Personal portfolio site for Axel Alvarez — full-stack web developer based in Saint-Étienne, looking for a web developer position (CDI/CDD) in the Lyon area.
+Personal portfolio site for Axel Alvarez — junior full-stack web developer based in Saint-Étienne, looking for a work-study contract (*alternance*, Bachelor CDA, ISCOD), a permanent (CDI) or a fixed-term (CDD) web developer position in the Lyon area.
 
 ## Stack
 

@@ -64,6 +64,11 @@
   flex: 1;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  // Colonne bornée à la largeur dispo : un enfant en nowrap (le nom) ne peut
+  // plus élargir la grille et pousser `.hero-foot` hors de l'écran.
+  grid-template-columns: minmax(0, 1fr);
+  // Sert de référence aux unités cqi de `.hero-name`.
+  container-type: inline-size;
   // Padding top : juste au-dessus du header fixe (~62 px non rétréci, ~46 px
   // rétréci) pour rapprocher la status bar du header.
   // Padding bottom : minimal pour coller `.hero-foot` au bas du viewport.
@@ -162,15 +167,6 @@
   }
 }
 
-// Évite que "axel_alvarez_" ne soit coupé entre ~380px et 480px : la base
-// épinglait 56px alors que la largeur dispo ne le permet pas.
-@media (max-width: 480px) {
-  .hero-name {
-    font-size: clamp(34px, 9.5vw, 50px);
-    white-space: nowrap;
-  }
-}
-
 .hero-role {
   font-size: clamp(14px, 1.4vw, 18px);
   color: var(--fg-dim);
@@ -235,11 +231,24 @@
   &:focus-visible { outline: 1px dashed var(--accent); outline-offset: 4px; }
 
   .bar {
-    width: 1px;
+    width: 2px;
     height: 28px;
     background: linear-gradient(to bottom, var(--accent), transparent);
+    box-shadow: 0 0 8px var(--accent), 0 0 20px color-mix(in srgb, var(--accent) 55%, transparent);
+    transform-origin: top center;
     animation: drop 1.8s ease-in-out infinite;
     transition: width 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+}
+
+@import 'hero-visual';
+
+// Évite que "axel_alvarez_" ne soit coupé entre ~380px et 480px : la base
+// épinglait 56px alors que la largeur dispo ne le permet pas.
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: clamp(34px, 9.5vw, 50px);
+    white-space: nowrap;
   }
 }
 
